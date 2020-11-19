@@ -21,4 +21,4 @@ Copyright 2020 openENTRANCE consortium
 </p>
 
 
-This repository aims to share the files that are using in the linkage process between models and [openENTRANCE](https://openentrance.eu/) platform.
+This repository aims to share the files used in the linkage process between models and [openENTRANCE](https://openentrance.eu/) platform.
