@@ -19,3 +19,6 @@ Copyright 2020 openENTRANCE consortium
 <p align="center">
   <img width="195" height="195" src="https://github.com/openENTRANCE/linkages/blob/genesys_rep/0_assets/Models.png">
 </p>
+
+
+This repository aims to share the files that are using in the linkage process between models and [openENTRANCE](https://openentrance.eu/) platform.
