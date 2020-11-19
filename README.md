@@ -17,5 +17,5 @@ Copyright 2020 openENTRANCE consortium
 ## Model linkage and definitions
 
 <p align="center">
-  <img width="195" height="195" src="https://github.com/openENTRANCE/linkages/blob/master/assets/Models.png">
+  <img width="195" height="195" src="https://github.com/openENTRANCE/linkages/blob/genesys_rep/0_assets/Models.png">
 </p>
