@@ -1,0 +1,140 @@
+Model,Scenario,Region,Variable,Unit,2050
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,Austria,Capacity|Electricity|Biomass,GW,0.333
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,Austria,Capacity|Electricity|Coal,GW,0.0114648
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,Austria,Capacity|Electricity|Gas,GW,0.014918852841105001
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,Austria,Capacity|Electricity|Hydro,GW,16.2138
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,Austria,Capacity|Electricity|Solar,GW,24.41407299025682
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,Austria,Capacity|Electricity|Wind,GW,26.07972686454599
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,Austria,Capacity|Electricity|Wind|Onshore,GW,26.07972686454599
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,Balkans,Capacity|Electricity|Biomass,GW,0.18227600599520002
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,Balkans,Capacity|Electricity|Coal,GW,10.28544324211418
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,Balkans,Capacity|Electricity|Gas,GW,2.572649816503032
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,Balkans,Capacity|Electricity|Geothermal,GW,1.17000000000065
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,Balkans,Capacity|Electricity|Hydro,GW,37.90761924165263
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,Balkans,Capacity|Electricity|Nuclear,GW,17.520489980758256
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,Balkans,Capacity|Electricity|Oil,GW,0.198
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,Balkans,Capacity|Electricity|Solar,GW,131.74560131146924
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,Balkans,Capacity|Electricity|Wind,GW,67.63483109911675
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,Balkans,Capacity|Electricity|Wind|Offshore,GW,21.466843352607707
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,Balkans,Capacity|Electricity|Wind|Onshore,GW,46.16798774650905
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,Baltics,Capacity|Electricity|Biomass,GW,0.21617882621404103
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,Baltics,Capacity|Electricity|Gas,GW,1.242859075658481
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,Baltics,Capacity|Electricity|Hydro,GW,4.193208561570794
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,Baltics,Capacity|Electricity|Solar,GW,9.228252391374639
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,Baltics,Capacity|Electricity|Wind,GW,10.16214259591325
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,Baltics,Capacity|Electricity|Wind|Offshore,GW,7.060308986686431
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,Baltics,Capacity|Electricity|Wind|Onshore,GW,3.101833609226818
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,Baltics,Emissions|CO2|Energy|Supply|Electricity,Mt CO2/yr,-0.055142684989157004
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,Belgium,Capacity|Electricity|Biomass,GW,0.5373377646213461
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,Belgium,Capacity|Electricity|Gas,GW,0.8254620789884941
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,Belgium,Capacity|Electricity|Hydro,GW,1.791151639408468
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,Belgium,Capacity|Electricity|Solar,GW,40.82790246646086
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,Belgium,Capacity|Electricity|Wind,GW,33.42645671599946
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,Belgium,Capacity|Electricity|Wind|Offshore,GW,11.83
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,Belgium,Capacity|Electricity|Wind|Onshore,GW,21.59645671599946
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,Czech Republic,Capacity|Electricity|Biomass,GW,0.30976484827738904
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,Czech Republic,Capacity|Electricity|Coal,GW,2.373078062719717
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,Czech Republic,Capacity|Electricity|Gas,GW,0.11925963538003101
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,Czech Republic,Capacity|Electricity|Hydro,GW,2.650732410765674
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,Czech Republic,Capacity|Electricity|Nuclear,GW,13.71228346456693
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,Czech Republic,Capacity|Electricity|Oil,GW,0.010288661052117001
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,Czech Republic,Capacity|Electricity|Solar,GW,25.82355227840275
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,Czech Republic,Capacity|Electricity|Wind,GW,7.0668143387766
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,Czech Republic,Capacity|Electricity|Wind|Onshore,GW,7.0668143387766
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,France,Capacity|Electricity|Biomass,GW,0.775409456725753
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,France,Capacity|Electricity|Gas,GW,1.879163846970501
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,France,Capacity|Electricity|Hydro,GW,26.8558
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,France,Capacity|Electricity|Nuclear,GW,41.12361793020983
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,France,Capacity|Electricity|Oil,GW,0.06850722011915801
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,France,Capacity|Electricity|Solar,GW,103.191737626714
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,France,Capacity|Electricity|Wind,GW,149.1708441172586
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,France,Capacity|Electricity|Wind|Offshore,GW,60.36182010558966
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,France,Capacity|Electricity|Wind|Onshore,GW,88.80902401166895
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,Germany,Capacity|Electricity|Biomass,GW,6.327000000000001
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,Germany,Capacity|Electricity|Coal,GW,9.586786459789394
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,Germany,Capacity|Electricity|Gas,GW,17.96649246480746
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,Germany,Capacity|Electricity|Hydro,GW,16.41004
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,Germany,Capacity|Electricity|Oil,GW,0.0838
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,Germany,Capacity|Electricity|Solar,GW,162.8599501512228
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,Germany,Capacity|Electricity|Wind,GW,118.050515599043
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,Germany,Capacity|Electricity|Wind|Offshore,GW,3.182623009988449
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,Germany,Capacity|Electricity|Wind|Onshore,GW,114.8678925890546
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,Germany,Emissions|CO2|Energy|Supply|Electricity,Mt CO2/yr,1.45171826664061
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,Hungary,Capacity|Electricity|Biomass,GW,0.10577745015853
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,Hungary,Capacity|Electricity|Coal,GW,0.523018073365453
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,Hungary,Capacity|Electricity|Gas,GW,1.192254381390922
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,Hungary,Capacity|Electricity|Hydro,GW,0.11034865265237001
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,Hungary,Capacity|Electricity|Nuclear,GW,7.209874763552783
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,Hungary,Capacity|Electricity|Solar,GW,22.82671777598409
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,Hungary,Capacity|Electricity|Wind,GW,12.05337482876548
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,Hungary,Capacity|Electricity|Wind|Onshore,GW,12.05337482876548
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,Ireland,Capacity|Electricity|Biomass,GW,7.715881427801808
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,Ireland,Capacity|Electricity|Gas,GW,2.756303989807861
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,Ireland,Capacity|Electricity|Hydro,GW,0.47570427886607003
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,Ireland,Capacity|Electricity|Wind,GW,67.16575419724539
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,Ireland,Capacity|Electricity|Wind|Offshore,GW,64.52898626168272
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,Ireland,Capacity|Electricity|Wind|Onshore,GW,2.636767935562683
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,Ireland,Emissions|CO2|Energy|Supply|Electricity,Mt CO2/yr,-15.57266225248815
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,Italy,Capacity|Electricity|Biomass,GW,0.5946726924450291
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,Italy,Capacity|Electricity|Coal,GW,1.705225578383676
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,Italy,Capacity|Electricity|Gas,GW,2.415980601934903
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,Italy,Capacity|Electricity|Hydro,GW,27.0006
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,Italy,Capacity|Electricity|Oil,GW,0.001947536017978
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,Italy,Capacity|Electricity|Solar,GW,154.9086310664406
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,Italy,Capacity|Electricity|Wind,GW,73.12900002607567
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,Italy,Capacity|Electricity|Wind|Onshore,GW,73.12900002607567
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,Poland,Capacity|Electricity|Biomass,GW,6.763504568071038
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,Poland,Capacity|Electricity|Coal,GW,2.293659507505286
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,Poland,Capacity|Electricity|Gas,GW,20.92123825602451
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,Poland,Capacity|Electricity|Hydro,GW,2.601732718748097
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,Poland,Capacity|Electricity|Solar,GW,61.63957573288157
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,Poland,Capacity|Electricity|Wind,GW,25.22195043127986
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,Poland,Capacity|Electricity|Wind|Onshore,GW,25.22195043127986
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,Poland,Emissions|CO2|Energy|Supply|Electricity,Mt CO2/yr,-8.819563013552475
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,Portugal,Capacity|Electricity|Biomass,GW,0.159416781501413
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,Portugal,Capacity|Electricity|Gas,GW,0.6940152100471141
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,Portugal,Capacity|Electricity|Hydro,GW,15.17579975595652
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,Portugal,Capacity|Electricity|Solar,GW,26.44375304145068
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,Portugal,Capacity|Electricity|Wind,GW,23.37737156227547
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,Portugal,Capacity|Electricity|Wind|Onshore,GW,23.37737156227547
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,Scandinavia,Capacity|Electricity|Biomass,GW,4.590141374883097
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,Scandinavia,Capacity|Electricity|Gas,GW,3.179002814053973
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,Scandinavia,Capacity|Electricity|Hydro,GW,37.34539783652524
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,Scandinavia,Capacity|Electricity|Nuclear,GW,2.419399202929684
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,Scandinavia,Capacity|Electricity|Oil,GW,0.270154413997833
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,Scandinavia,Capacity|Electricity|Solar,GW,34.17550902291004
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,Scandinavia,Capacity|Electricity|Wind,GW,62.07423819404038
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,Scandinavia,Capacity|Electricity|Wind|Offshore,GW,4.556803151122246
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,Scandinavia,Capacity|Electricity|Wind|Onshore,GW,57.51743504291815
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,Scandinavia,Emissions|CO2|Energy|Supply|Electricity,Mt CO2/yr,-7.576388858602263
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,Spain,Capacity|Electricity|Biomass,GW,20.86456967801415
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,Spain,Capacity|Electricity|Gas,GW,1.985709195281365
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,Spain,Capacity|Electricity|Hydro,GW,27.7662662861934
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,Spain,Capacity|Electricity|Solar,GW,198.272005361909
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,Spain,Capacity|Electricity|Wind,GW,144.6555880816354
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,Spain,Capacity|Electricity|Wind|Onshore,GW,144.6555880816354
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,Spain,Emissions|CO2|Energy|Supply|Electricity,Mt CO2/yr,-41.82260338973409
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,Switzerland,Capacity|Electricity|Biomass,GW,0.12320331450570601
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,Switzerland,Capacity|Electricity|Hydro,GW,17.361
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,Switzerland,Capacity|Electricity|Solar,GW,28.135765938792
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,Switzerland,Capacity|Electricity|Wind,GW,4.5592662008197475
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,Switzerland,Capacity|Electricity|Wind|Onshore,GW,4.5592662008197475
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,The Netherlands,Capacity|Electricity|Biomass,GW,3.814400570769624
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,The Netherlands,Capacity|Electricity|Coal,GW,0.930538429921907
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,The Netherlands,Capacity|Electricity|Gas,GW,16.0288813242328
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,The Netherlands,Capacity|Electricity|Hydro,GW,0.0874
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,The Netherlands,Capacity|Electricity|Solar,GW,28.38085471847911
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,The Netherlands,Capacity|Electricity|Wind,GW,18.87550214318634
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,The Netherlands,Capacity|Electricity|Wind|Offshore,GW,8.675785939271185
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,The Netherlands,Capacity|Electricity|Wind|Onshore,GW,10.19971620391516
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,The Netherlands,Emissions|CO2|Energy|Supply|Electricity,Mt CO2/yr,-5.346482595515004
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,United Kingdom,Capacity|Electricity|Biomass,GW,12.13797992026123
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,United Kingdom,Capacity|Electricity|Coal,GW,2.785752274002224
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,United Kingdom,Capacity|Electricity|Gas,GW,23.91925431919608
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,United Kingdom,Capacity|Electricity|Hydro,GW,2.11136937217146
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,United Kingdom,Capacity|Electricity|Oil,GW,0.019362934681794
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,United Kingdom,Capacity|Electricity|Solar,GW,131.8500866430232
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,United Kingdom,Capacity|Electricity|Wind,GW,182.6845214139708
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,United Kingdom,Capacity|Electricity|Wind|Offshore,GW,44.55952141397079
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,United Kingdom,Capacity|Electricity|Wind|Onshore,GW,138.125
+GENeSYS-MOD 2.9.0-oe,Directed Transition 1.0,United Kingdom,Emissions|CO2|Energy|Supply|Electricity,Mt CO2/yr,-19.92852071939288

@@ -1,0 +1,181 @@
+technos_list: 
+    VarTU: 'TU_ThermalUnits'
+    VarSS: 'SS_SeasonalStorage'
+    VarSTS: 'STS_ShortTermStorage'
+    VarRES: 'RES_RenewableUnits'
+
+VarIn:
+    MaxPowerFlow:
+        variable: 'Maximum Flow|Electricity|Grid'
+        unit: 'MW'
+    MinPowerFlow:
+        variable: 'Minimum Flow|Electricity|Grid'
+        unit: 'MW'
+    Impedance:
+        variable: 'Impedance|Electricity|Grid'
+        unit: 'S'
+
+VarZV:
+    AirCondition: 'Final Energy|Electricity|Cooling'
+    ElecHeating: 'Final Energy|Electricity|Heat'
+    ElecVehicle: 'Final Energy|Electricity|Transportation'
+    nonthermo: 'Final Energy|Electricity|Other (excl. Heat, Cooling, Transport)'
+    InertiaDemand: 'Network|Electricity|Demand|Inertia'
+    SecondaryDemand: 'Network|Electricity|Demand|Reserve|Automatic Frequency Restoration'
+    PrimaryDemand: 'Network|Electricity|Demand|Reserve|Frequency Containment'
+    Import: 'Network|Electricity|Import'
+
+VarTU:
+    MaxPower: 
+        variable: 'Maximum Active power|Electricity|'
+        unit: 'MW'
+    MinPower: 
+        variable: 'Minimum Active power|Electricity|'
+        unit: 'MW'
+    MinUpTime: 
+        variable: 'Minimum On Duration|Electricity|'
+        unit: 'hour'
+    MinDownTime: 
+        variable: 'Minimum Off Duration|Electricity|'
+        unit: 'hour'
+    PrimaryRho: 
+        variable: 'Rate Frequency Containment Reserve|Electricity|'
+        unit: '%'
+    SecondaryRho: 
+        variable: 'Rate Automatic Frequency Restoration Reserve|Electricity|'
+        unit: '%'
+    NumberUnits: 
+        variable: 'Number of Units|Electricity|'
+        unit: ' '
+    UnavailabilityRate: 
+        variable: 'Forced Outage Rate|Electricity|'
+        unit: '%'
+    MaintenanceRate: 
+        variable: 'Planned Outage Rate|Electricity|'
+        unit: '%'
+    MeanUnavailabilityDuration: 
+        variable: 'Mean Outage Duration|Electricity|'
+        unit: 'day'
+    Inertia: 
+        variable: 'Inertia|Electricity|'
+        unit: 'second'
+    CO2: 
+        variable: 'Emission Rate|CO2|Electricity|'
+        unit: 'tons/MWh'
+    VariableCost: 
+        variable: 'Variable Cost|Electricity|'
+        unit: '€/MWh'
+
+VarSS:
+    MaxPower: 
+        variable: 'Maximum Active power|Electricity|'
+        unit: 'MW'
+    MinPower: 
+        variable: 'Minimum Active power|Electricity|'
+        unit: 'MW'
+    MaxVolume: 
+        variable: 'Maximum Storage|Electricity|'
+        unit: 'MWh'
+    MinVolume: 
+        variable: 'Minimum Storage|Electricity|'
+        unit: 'MWh'
+    TurbineEfficiency: 
+        variable: 'Turbine Efficiency|Electricity|'
+        unit: '%'
+    PumpingEfficiency: 
+        variable: 'Pumping Efficiency|Electricity|'
+        unit: '%'
+    Inflows: 
+        variable: 'Inflows|Electricity|'
+        unit: 'MWh'
+    PrimaryRho: 
+        variable: 'Rate Frequency Containment Reserve|Electricity|'
+        unit: '%'
+    SecondaryRho: 
+        variable: 'Rate Automatic Frequency Restoration Reserve|Electricity|'
+        unit: '%'
+    Inertia: 
+        variable: 'Inertia|Electricity|'
+        unit: 'second'
+
+VarSTS:
+    MaxPower: 
+        variable: 'Maximum Active power|Electricity|'
+        unit: 'MW'
+    MinPower: 
+        variable: 'Minimum Active power|Electricity|'
+        unit: 'MW'
+    MaxVolume: 
+        variable: 'Maximum Storage|Electricity|'
+        unit: 'MWh'
+    MinVolume: 
+        variable: 'Minimum Storage|Electricity|'
+        unit: 'MWh'
+    TurbineEfficiency: 
+        variable: 'Turbine Efficiency|Electricity|'
+        unit: '%'
+    PumpingEfficiency: 
+        variable: 'Pumping Efficiency|Electricity|'
+        unit: '%'
+    MaxPrimaryPower: 
+        variable: 'Rate Frequency Containment Reserve|Electricity|'
+        unit: '%'
+    MaxSecondaryPower: 
+        variable: 'Rate Automatic Frequency Restoration Reserve|Electricity|'
+        unit: '%'
+    Inertia: 
+        variable: 'Inertia|Electricity|'
+        unit: 'second'
+
+VarRES:
+    MaxPower: 
+        variable: 'Maximum Active power|Electricity|'
+        unit: 'MW'
+    MinPower: 
+        variable: 'Minimum Active power|Electricity|'
+        unit: 'MW'
+    PrimaryRho: 
+        variable: 'Rate Frequency Containment Reserve|Electricity|'
+        unit: '%'
+    SecondaryRho: 
+        variable: 'Rate Automatic Frequency Restoration Reserve|Electricity|'
+        unit: '%'
+    Inertia: 
+        variable: 'Inertia|Electricity|'
+        unit: 'second'
+
+technosp4r:
+    BiomassI: 'Biomass|Traditional'
+    BiomassII: 'Biomass|New and imported'
+    CoalwithoutCCS: 'Coal'
+    GaswithoutCCS: 'Gas|CCGT'
+    LignitewithoutCCS: 'Lignite'
+    Nuclear: 'Nuclear'
+    OCGT: 'Gas|OCGT'
+    HydroReservoir: 'Hydro|Reservoir'
+    demandResponse: 'Demand Response|Load Curtailement'
+    PSP: 'Hydro|Pumped Storage'
+    PV: 'Solar'
+    WindOnshore: 'Wind|OnShore'
+    WindOffshore: 'Wind|OffShore'
+    RoR: 'Hydro|Run of River'
+
+# defines which plan4res variable use to get technical info
+# if the techno is not defined in plan4res database, varp4r:'None'
+technosgenesys2p4r:
+    Biomass: 
+        varp4r: 'Biomass|Traditional'
+    Coal: 
+        varp4r: 'Coal'
+    Gas: 
+        varp4r: 'Gas|CCGT'
+    Oil:
+        varp4r: 'None'
+    Nuclear: 
+        varp4r: 'Nuclear'
+    Hydro:
+        varp4r: ['Hydro|Reservoir', 'Hydro|Pumped Storage', 'Hydro|Run of River']
+
+conversion:
+    MaxPrimaryPower: 'DivideByMaxPower'
+    MaxSecondaryPower: 'DivideByMaxPower'

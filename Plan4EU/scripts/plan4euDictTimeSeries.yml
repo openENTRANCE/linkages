@@ -1,0 +1,139 @@
+ZV:
+    AirCondition:
+        Austria : EDF__HourlyCoef-AirCondition-PresentClimate-AT__20062019__28062019__v1.csv
+        Balkans : EDF__HourlyCoef-AirCondition-PresentClimate-HR__20062019__28062019__v1.csv
+        Baltics : EDF__HourlyCoef-AirCondition-PresentClimate-LV__20062019__28062019__v1.csv
+        Belgium : EDF__HourlyCoef-AirCondition-PresentClimate-BE__20062019__28062019__v1.csv
+        Switzerland : EDF__HourlyCoef-AirCondition-PresentClimate-CH__20062019__28062019__v1.csv
+        Czech Republic : EDF__HourlyCoef-AirCondition-PresentClimate-CZ__20062019__28062019__v1.csv
+        Germany : EDF__HourlyCoef-AirCondition-PresentClimate-DE__20062019__28062019__v1.csv
+        Spain : EDF__HourlyCoef-AirCondition-PresentClimate-ES__20062019__28062019__v1.csv
+        France : EDF__HourlyCoef-AirCondition-PresentClimate-FR__20062019__28062019__v1.csv
+        Hungary : EDF__HourlyCoef-AirCondition-PresentClimate-HU__20062019__28062019__v1.csv
+        Ireland : EDF__HourlyCoef-AirCondition-PresentClimate-IE__20062019__28062019__v1.csv
+        Italy : EDF__HourlyCoef-AirCondition-PresentClimate-IT__20062019__28062019__v1.csv
+        The Netherlands : EDF__HourlyCoef-AirCondition-PresentClimate-NL__20062019__28062019__v1.csv
+        Poland : EDF__HourlyCoef-AirCondition-PresentClimate-PL__20062019__28062019__v1.csv
+        Portugal : EDF__HourlyCoef-AirCondition-PresentClimate-ES__20062019__28062019__v1.csv
+        Scandinavia : EDF__HourlyCoef-AirCondition-PresentClimate-NO__20062019__28062019__v1.csv
+        Slovakia : EDF__HourlyCoef-AirCondition-PresentClimate-SK__20062019__28062019__v1.csv
+        United Kingdom : EDF__HourlyCoef-AirCondition-PresentClimate-UK__20062019__28062019__v1.csv
+    ElecHeating:
+        Austria : EDF__HourlyCoef-Heating-PresentClimate-AT__20062019__28062019__v1.csv
+        Balkans : EDF__HourlyCoef-Heating-PresentClimate-HR__20062019__28062019__v1.csv
+        Baltics : EDF__HourlyCoef-Heating-PresentClimate-LV__20062019__28062019__v1.csv
+        Belgium : EDF__HourlyCoef-Heating-PresentClimate-BE__20062019__28062019__v1.csv
+        Switzerland : EDF__HourlyCoef-Heating-PresentClimate-CH__20062019__28062019__v1.csv
+        Czech Republic : EDF__HourlyCoef-Heating-PresentClimate-CZ__20062019__28062019__v1.csv
+        Germany : EDF__HourlyCoef-Heating-PresentClimate-DE__20062019__28062019__v1.csv
+        Spain : EDF__HourlyCoef-Heating-PresentClimate-ES__20062019__28062019__v1.csv
+        France : EDF__HourlyCoef-Heating-PresentClimate-FR__20062019__28062019__v1.csv
+        Hungary : EDF__HourlyCoef-Heating-PresentClimate-HU__20062019__28062019__v1.csv
+        Ireland : EDF__HourlyCoef-Heating-PresentClimate-IE__20062019__28062019__v1.csv
+        Italy : EDF__HourlyCoef-Heating-PresentClimate-IT__20062019__28062019__v1.csv
+        The Netherlands : EDF__HourlyCoef-Heating-PresentClimate-NL__20062019__28062019__v1.csv
+        Poland : EDF__HourlyCoef-Heating-PresentClimate-PL__20062019__28062019__v1.csv
+        Portugal : EDF__HourlyCoef-Heating-PresentClimate-ES__20062019__28062019__v1.csv
+        Scandinavia : EDF__HourlyCoef-Heating-PresentClimate-NO__20062019__28062019__v1.csv
+        Slovakia : EDF__HourlyCoef-Heating-PresentClimate-SK__20062019__28062019__v1.csv
+        United Kingdom : EDF__HourlyCoef-Heating-PresentClimate-UK__20062019__28062019__v1.csv
+    ElecVehicle:
+        Austria : EDF__HourlyCoef-ElecVehicle__20062019__28062019__v1.csv
+        Balkans : EDF__HourlyCoef-ElecVehicle__20062019__28062019__v1.csv
+        Baltics : EDF__HourlyCoef-ElecVehicle__20062019__28062019__v1.csv
+        Belgium : EDF__HourlyCoef-ElecVehicle__20062019__28062019__v1.csv
+        Switzerland : EDF__HourlyCoef-ElecVehicle__20062019__28062019__v1.csv
+        Czech Republic : EDF__HourlyCoef-ElecVehicle__20062019__28062019__v1.csv
+        Germany : EDF__HourlyCoef-ElecVehicle__20062019__28062019__v1.csv
+        Spain : EDF__HourlyCoef-ElecVehicle__20062019__28062019__v1.csv
+        France : EDF__HourlyCoef-ElecVehicle__20062019__28062019__v1.csv
+        Hungary : EDF__HourlyCoef-ElecVehicle__20062019__28062019__v1.csv
+        Ireland : EDF__HourlyCoef-ElecVehicle__20062019__28062019__v1.csv
+        Italy : EDF__HourlyCoef-ElecVehicle__20062019__28062019__v1.csv
+        The Netherlands : EDF__HourlyCoef-ElecVehicle__20062019__28062019__v1.csv
+        Poland : EDF__HourlyCoef-ElecVehicle__20062019__28062019__v1.csv
+        Portugal : EDF__HourlyCoef-ElecVehicle__20062019__28062019__v1.csv
+        Scandinavia : EDF__HourlyCoef-ElecVehicle__20062019__28062019__v1.csv
+        Slovakia : EDF__HourlyCoef-ElecVehicle__20062019__28062019__v1.csv
+        United Kingdom : EDF__HourlyCoef-ElecVehicle__20062019__28062019__v1.csv
+    nonthermo: 
+        Austria : EDF__HourlyCoef-non-thermo-PresentClimate-AT__20062019__28062019__v1
+        Balkans : EDF__HourlyCoef-non-thermo-PresentClimate-HR__20062019__28062019__v1
+        Baltics : EDF__HourlyCoef-non-thermo-PresentClimate-LV__20062019__28062019__v1
+        Belgium : EDF__HourlyCoef-non-thermo-PresentClimate-BE__20062019__28062019__v1
+        Switzerland : EDF__HourlyCoef-non-thermo-PresentClimate-CH__20062019__28062019__v1
+        Czech Republic : EDF__HourlyCoef-non-thermo-PresentClimate-CZ__20062019__28062019__v1
+        Germany : EDF__HourlyCoef-non-thermo-PresentClimate-DE__20062019__28062019__v1
+        Spain : EDF__HourlyCoef-non-thermo-PresentClimate-ES__20062019__28062019__v1
+        France : EDF__HourlyCoef-non-thermo-PresentClimate-FR__20062019__28062019__v1
+        Hungary : EDF__HourlyCoef-non-thermo-PresentClimate-HU__20062019__28062019__v1
+        Ireland : EDF__HourlyCoef-non-thermo-PresentClimate-IE__20062019__28062019__v1
+        Italy : EDF__HourlyCoef-non-thermo-PresentClimate-IT__20062019__28062019__v1
+        The Netherlands : EDF__HourlyCoef-non-thermo-PresentClimate-NL__20062019__28062019__v1
+        Poland : EDF__HourlyCoef-non-thermo-PresentClimate-PL__20062019__28062019__v1
+        Portugal : EDF__HourlyCoef-non-thermo-PresentClimate-ES__20062019__28062019__v1
+        Scandinavia : EDF__HourlyCoef-non-thermo-PresentClimate-NO__20062019__28062019__v1
+        Slovakia : EDF__HourlyCoef-non-thermo-PresentClimate-SK__20062019__28062019__v1
+        United Kingdom : EDF__HourlyCoef-non-thermo-PresentClimate-UK__20062019__28062019__v1
+SS:
+    Inflows:
+        Austria : EDF__Inflow-HourlyCoefficient-PresentClimate-AT__18092019__18092019__v1.csv
+        Balkans : EDF__Inflow-HourlyCoefficient-PresentClimate-BG__18092019__18092019__v1.csv
+        Switzerland : EDF__Inflow-HourlyCoefficient-PresentClimate-CH__18092019__18092019__v1.csv
+        Spain : EDF__Inflow-HourlyCoefficient-PresentClimate-ES__18092019__18092019__v1.csv
+        France : EDF__Inflow-HourlyCoefficient-PresentClimate-FR__18092019__18092019__v1.csv
+        Italy : EDF__Inflow-HourlyCoefficient-PresentClimate-IT__18092019__18092019__v1.csv
+        Portugal : EDF__Inflow-HourlyCoefficient-PresentClimate-PT__18092019__18092019__v1.csv
+        Scandinavia : EDF__Inflow-HourlyCoefficient-PresentClimate-NO__18092019__18092019__v1.csv
+RES:
+    Solar:
+        Austria: EDF__PV-LoadFactor-PresentClimate-AT__13082019__13082019__v1.csv
+        Balkans: EDF__PV-LoadFactor-PresentClimate-RO__13082019__13082019__v1.csv
+        Baltics: EDF__PV-LoadFactor-PresentClimate-LT__13082019__13082019__v1.csv
+        Belgium: EDF__PV-LoadFactor-PresentClimate-BE__13082019__13082019__v1.csv
+        Switzerland: EDF__PV-LoadFactor-PresentClimate-CH__13082019__13082019__v1.csv
+        Czech Republic : EDF__PV-LoadFactor-PresentClimate-CZ__13082019__13082019__v1.csv
+        Germany : EDF__PV-LoadFactor-PresentClimate-DE_C1__13082019__13082019__v1.csv
+        Spain : EDF__PV-LoadFactor-PresentClimate-ES__13082019__13082019__v1.csv
+        France : EDF__PV-LoadFactor-PresentClimate-FR_C8__13082019__13082019__v1.csv
+        Hungary : EDF__PV-LoadFactor-PresentClimate-HU__13082019__13082019__v1.csv
+        Ireland : EDF__PV-LoadFactor-PresentClimate-IE__13082019__13082019__v1.csv
+        Italy : EDF__PV-LoadFactor-PresentClimate-IT__13082019__13082019__v1.csv
+        The Netherlands : EDF__PV-LoadFactor-PresentClimate-NL__13082019__13082019__v1.csv
+        Poland : EDF__PV-LoadFactor-PresentClimate-PL__13082019__13082019__v1.csv
+        Portugal : EDF__PV-LoadFactor-PresentClimate-PT__13082019__13082019__v1.csv
+        Scandinavia : EDF__PV-LoadFactor-PresentClimate-DK__13082019__13082019__v1.csv
+        Slovakia : EDF__PV-LoadFactor-PresentClimate-SK__13082019__13082019__v1.csv
+        United Kingdom : EDF__PV-LoadFactor-PresentClimate-UK__13082019__13082019__v1.csv       
+    Wind:
+        Austria: EDF__WindOnshore-LoadFactor-PresentClimate-AT__13082019__13082019__v1.csv
+        Balkans: EDF__WindOnshore-LoadFactor-PresentClimate-RO__13082019__13082019__v1.csv
+        Baltics: EDF__WindOnshore-LoadFactor-PresentClimate-LT__13082019__13082019__v1.csv
+        Belgium: EDF__WindOnshore-LoadFactor-PresentClimate-BE__13082019__13082019__v1.csv
+        Switzerland: EDF__WindOnshore-LoadFactor-PresentClimate-CH__13082019__13082019__v1.csv
+        Czech Republic : EDF__WindOnshore-LoadFactor-PresentClimate-CZ__13082019__13082019__v1.csv
+        Germany : EDF__WindOnshore-LoadFactor-PresentClimate-DE_C1__13082019__13082019__v1.csv
+        Spain : EDF__WindOnshore-LoadFactor-PresentClimate-ES__13082019__13082019__v1.csv
+        France : EDF__WindOnshore-LoadFactor-PresentClimate-FR_C8__13082019__13082019__v1.csv
+        Hungary : EDF__WindOnshore-LoadFactor-PresentClimate-HU__13082019__13082019__v1.csv
+        Ireland : EDF__WindOnshore-LoadFactor-PresentClimate-IE__13082019__13082019__v1.csv
+        Italy : EDF__WindOnshore-LoadFactor-PresentClimate-IT__13082019__13082019__v1.csv
+        The Netherlands : EDF__WindOnshore-LoadFactor-PresentClimate-NL__13082019__13082019__v1.csv
+        Poland : EDF__WindOnshore-LoadFactor-PresentClimate-PL__13082019__13082019__v1.csv
+        Portugal : EDF__WindOnshore-LoadFactor-PresentClimate-PT__13082019__13082019__v1.csv
+        Scandinavia : EDF__WindOnshore-LoadFactor-PresentClimate-SE__13082019__13082019__v1.csv
+        Slovakia : EDF__WindOnshore-LoadFactor-PresentClimate-SK__13082019__13082019__v1.csv
+        United Kingdom : EDF__WindOnshore-LoadFactor-PresentClimate-UK__13082019__13082019__v1.csv
+    Wind|OffShore:
+        United Kingdom : EDF__WindOffshore-LoadFactor-PresentClimate-UK__25112019__25112019__v1.csv
+    Hydro|Run of River:
+        Austria: EDF__RunOfRiver-HourlyCoefficient-PresentClimate-AT__18092019__18092019__v1.csv
+        Balkans: EDF__RunOfRiver-HourlyCoefficient-PresentClimate-RO__18092019__18092019__v1.csv
+        Switzerland: EDF__RunOfRiver-HourlyCoefficient-PresentClimate-CH__18092019__18092019__v1.csv
+        Germany : EDF__RunOfRiver-HourlyCoefficient-PresentClimate-DE__18092019__18092019__v1.csv
+        Spain : EDF__RunOfRiver-HourlyCoefficient-PresentClimate-ES__18092019__18092019__v1.csv
+        France : EDF__RunOfRiver-HourlyCoefficient-PresentClimate-FR__18092019__18092019__v1.csv
+        Italy : EDF__RunOfRiver-HourlyCoefficient-PresentClimate-IT__18092019__18092019__v1.csv
+        The Netherlands : EDF__WindOnshore-LoadFactor-PresentClimate-NL__13082019__13082019__v1.csv
+        Scandinavia : EDF__RunOfRiver-HourlyCoefficient-PresentClimate-NO__18092019__18092019__v1.csv
+        Slovakia : EDF__RunOfRiver-HourlyCoefficient-PresentClimate-SK__18092019__18092019__v1.csv

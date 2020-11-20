@@ -1,0 +1,19 @@
+date_start: '2050-01-01T00:00+01:00'
+date_end: '2050-01-01T23:00+01:00'
+scenario: 'My_scenario'
+model: 'plan4EU_v0.1'
+
+listfiles:
+    ActivePowerOUT.csv: 'Active Power|Electricity|'
+    PrimaryOUT.csv: 'Reserve|Electricity|Frequency Containment|'
+    SecondaryOUT.csv: 'Reserve|Electricity|Automatic Frequency Restoration|'
+    VolumeOUT.csv: 'Storage|Electricity|'
+    MarginalCostActivePowerDemandOUT.csv: 'Marginal Cost|Final Energy|Electricity'
+    MarginalCostPrimaryOUT.csv: 'Marginal Cost|Network|Electricity|Demand|Reserve|Frequency Containment'
+    MarginalCostSecondaryOUT.csv: 'Marginal Cost|Network|Electricity|Demand|Reserve|Automatic Frequency Restoration'
+    MarginalCostInertiaOUT.csv: 'Marginal Cost|Network|Electricity|Demand|Inertia'
+    FlowsOUT.csv: 'Active Power Flow|Electricity|Grid'
+
+pumping: 'Active Pumped Power|Electricity|'
+scenarios: 1
+aggregate scenarios: yes

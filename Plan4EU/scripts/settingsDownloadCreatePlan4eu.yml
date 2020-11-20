@@ -1,0 +1,176 @@
+user: 'user'
+password: 'pass'
+outputpath: 'C:\\Users\\F04340\\Documents\\OneDrive - EDF\\OpenEntrance\\WP5\\datasets_IAMC\\'
+inputpath: 'C:\\Users\\F04340\\Documents\\OneDrive - EDF\\OpenEntrance\\WP5\\datasets_plan4res\\'
+inputfile: 'test.xlsx'
+mode: 'file'
+inputdata: 'mydata.csv'
+inputfilepath: 'C:\\Users\\F04340\\Documents\\OneDrive - EDF\\OpenEntrance\\WP5\\datasets_IAMC\\'
+# sourcetechnodata:
+# 	-from plan4res data in IAMC platform or from IAMC file =>plan4resdata
+#   -from variable dictionnary => vardict 
+sourcetechnodata: 'plan4resdata' 
+
+datagroups:
+    scenario:
+        model: 'GENeSYS-MOD 2.9.0-oe'
+        scenario: 'Directed Transition 1.0'
+        listvariables: ['Capacity|Electricity|Biomass', Capacity|Electricity|Nuclear','Capacity|Electricity|Coal','Capacity|Electricity|Gas', Capacity|Electricity|Oil, 'Capacity|Electricity|Hydro|Pumped Storage','Capacity|Electricity|Hydro|Reservoir', Capacity|Electricity|Hydro|Run of River', 'Capacity|Electricity|Geothermal', 'Capacity|Electricity|Solar|PV','Capacity|Electricity|Wind|Offshore','Capacity|Electricity|Wind|Onshore','Capacity|Electricity|Ocean','Emissions|CO2|Electricity|Coal','Emissions|CO2|Electricity|Gas','Emissions|CO2|Electricity|Oil']
+        listregionsGET: ['Austria' , 'Belgium' , 'Bulgaria' , 'Croatia' , 'Czech Republic' , 'Denmark' , 'Estonia' , 'Finland' , 'France' , 'Germany' ,'Greece' , 'Hungary' , 'Ireland' , 'Italy' , 'Latvia' , 'Lithuania' , 'Luxembourg' , 'Non-EU-Balkans' , 'Norway' , 'Poland' , 'Portugal' , 'Romania' , 'Slovakia' , 'Slovenia' , 'Spain' , 'Sweden' , 'Switzerland' , 'The Netherlands' , 'Turkey' ,'United Kingdom']
+        aggregateregions:
+            Baltics: ['Estonia', 'Latvia', 'Lithuania']
+            Balkans: ['Non-EU-Balkans', 'Bulgaria', 'Croatia','Greece','Romania','Slovenia']
+            Scandinavia: ['Denmark', 'Finland', 'Sweeden','Norway']
+        technos:
+            thermal: ['Biomass','Coal','Gas','Nuclear','Oil']
+            hydro: 'Hydro'
+            res: ['Solar', 'Wind']
+
+    plan4res:
+        model: 'plan4EU_v0.1'
+        scenario: 'plan4resCS3ReferenceWithoutClimateChange_V2.3_Country'
+        listvariables: ['Maximum Flow|Electricity|Grid', 'Minimum Flow|Electricity|Grid', 'Final Energy|Electricity|Cooling', 'Network|Electricity|Demand|Inertia', 'Network|Electricity|Demand|Reserve|Automatic Frequency Restoration', 'Network|Electricity|Demand|Reserve|Frequency Containment', 'Maximum Active power|Electricity|', 'Minimum Active power|Electricity|', 'Minimum On Duration|Electricity|', 'Minimum Off Duration|Electricity|', 'Rate Frequency Containment Reserve|Electricity|', 'Rate Automatic Frequency Restoration Reserve|Electricity|', 'Forced Outage Rate|Electricity|', 'Planned Outage Rate|Electricity|', 'Mean Outage Duration|Electricity|', 'Inertia|Electricity|', 'Maximum Storage|Electricity|', 'Minimum Storage|Electricity|', 'Turbine Efficiency|Electricity|', 'Pumping Efficiency|Electricity|', 'Variable Cost|Electricity|', 'Inflows|Electricity|']
+        listregionsGET: ['Austria' , 'Belgium' , 'Czech Republic' , 'France' , 'Germany' , 'Hungary' , 'Ireland' , 'Italy' , 'Hungary', 'Poland' , 'Portugal' , 'Slovakia' , 'Spain' , 'Switzerland' , 'The Netherlands' , 'United Kingdom', 'Balkans', 'Baltics', 'Scandinavia']       
+        aggregateregions: 
+
+partition:
+    Level1: ['Austria' , 'Belgium' , 'Czech Republic' , 'France' , 'Germany' , 'Hungary' , 'Ireland' , 'Italy' , 'Poland' , 'Portugal' , 'Spain' , 'Switzerland' , 'The Netherlands' , 'United Kingdom', 'Balkans', 'Baltics', 'Scandinavia']
+    Level2: 'Europe'
+
+# defines default values for each techno of the scenario
+defaultvalues:
+    Biomass: 
+        MaxPower: 250
+        MinPower: 150
+        MinUpTime: 3
+        MinDownTime: 3
+        UnavailabilityRate: 5
+        MaintenanceRate: 15
+        MeanUnavailabilityDuration: 7
+        CO2: 0
+        VariableCost: 20
+        Inertia: 0
+        PrimaryRho: 0.1
+        SecondaryRho: 0.1
+        Pauxiliary:
+        FixedCost:
+        StartupCost:
+        QuadTerm:
+        DeltarampDown: 
+        deltarampUp: 
+    Coal: 
+        MaxPower: 800
+        MinPower: 320
+        MinUpTime: 6
+        MinDownTime: 6
+        UnavailabilityRate: 5
+        MaintenanceRate: 15
+        MeanUnavailabilityDuration: 7
+        CO2: 0.644
+        VariableCost: 150
+        Inertia: 5
+        PrimaryRho: 0.1
+        SecondaryRho: 0.1
+        Pauxiliary:
+        FixedCost:
+        StartupCost:
+        QuadTerm:
+        DeltarampDown: 
+        deltarampUp: 
+    Gas: 
+        MaxPower: 500
+        MinPower: 150
+        MinUpTime: 24
+        MinDownTime: 24
+        UnavailabilityRate: 5
+        MaintenanceRate: 15
+        MeanUnavailabilityDuration: 7
+        CO2: 0.017
+        VariableCost: 131
+        Inertia: 4.5
+        PrimaryRho: 0.1
+        SecondaryRho: 0.1
+        Pauxiliary:
+        FixedCost:
+        StartupCost:
+        QuadTerm:
+        DeltarampDown: 
+        deltarampUp:
+    Oil:
+        MaxPower: 200
+        MinPower: 100
+        MinUpTime: 3
+        MinDownTime: 3
+        UnavailabilityRate: 5
+        MaintenanceRate: 15
+        MeanUnavailabilityDuration: 7
+        CO2: 0.9
+        VariableCost: 200
+        Inertia: 5
+        PrimaryRho: 0.1
+        SecondaryRho: 0.1
+        Pauxiliary:
+        FixedCost:
+        StartupCost:
+        QuadTerm:
+        DeltarampDown: 
+        deltarampUp: 
+    Nuclear: 
+        MaxPower: 1600
+        MinPower: 800
+        MinUpTime: 168
+        MinDownTime: 168
+        UnavailabilityRate: 5
+        MaintenanceRate: 15
+        MeanUnavailabilityDuration: 7
+        CO2: 0
+        VariableCost: 14
+        Inertia: 5.5
+        PrimaryRho: 0.1
+        SecondaryRho: 0.1
+        Pauxiliary:
+        FixedCost:
+        StartupCost:
+        QuadTerm:
+        DeltarampDown: 
+        deltarampUp:
+    Hydro|Reservoir:
+        MaxPower: 10000
+        MinPower: 0
+        MaxVolume: 10000000
+        MinVolume: 0
+        TurbineEfficiency: 1
+        PumpingEfficiency: 0.75
+        Inflows: 0
+        PrimaryRho: 0.1
+        SecondaryRho: 0.1
+        Inertia: 4.5
+    Hydro|Pumped Storage:
+        MaxPower: 1000
+        MinPower: 0
+        MaxVolume: 100000
+        MinVolume: 0
+        TurbineEfficiency: 1
+        PumpingEfficiency: 0.75
+        Inflows: 0
+        MaxPrimaryPower: 0.1
+        MaxSecondaryPower: 0.1
+        Inertia: 4.5
+    Hydro|Run of River:
+        MaxPower: 100
+        MinPower: 0
+        Inertia: 4.5
+        PrimaryRho: 0.1
+        SecondaryRho: 0.1
+    Solar:
+        MaxPower: 100
+        MinPower: 0
+        Inertia: 0
+        PrimaryRho: 0.1
+        SecondaryRho: 0.1
+    Wind:
+        MaxPower: 100
+        MinPower: 0
+        Inertia: 0
+        PrimaryRho: 0.1
+        SecondaryRho: 0.1
