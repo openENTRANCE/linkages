@@ -17,7 +17,7 @@ Copyright 2020 openENTRANCE consortium
 ## Model linkage and definitions
 
 <p align="center">
-  <img width="385" height="315" src="https://github.com/openENTRANCE/linkages/blob/main/0_assets/Models.png">
+  <img width="455" height="385" src="https://github.com/openENTRANCE/linkages/blob/main/0_assets/Models.png">
 </p>
 
 
