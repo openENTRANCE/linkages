@@ -1,0 +1,83 @@
+HLR_Biomass,Emissions|CO2|Energy|Demand|Residential and Commercial
+HLR_Biomass_CHP,Emissions|CO2|Energy|Demand|Residential and Commercial
+HLR_Biomass_CHP_CCS,Emissions|CO2|Energy|Demand|Residential and Commercial
+HLR_Direct_Electric,Emissions|CO2|Energy|Demand|Residential and Commercial
+HLR_Gas_Boiler,Emissions|CO2|Energy|Demand|Residential and Commercial
+HLR_Gas_CHP,Emissions|CO2|Energy|Demand|Residential and Commercial
+HLR_Geothermal,Emissions|CO2|Energy|Demand|Residential and Commercial
+HLR_H2_Boiler,Emissions|CO2|Energy|Demand|Residential and Commercial
+HLR_Hardcoal,Emissions|CO2|Energy|Demand|Residential and Commercial
+HLR_Hardcoal_CHP,Emissions|CO2|Energy|Demand|Residential and Commercial
+HLR_Hardcoal_CHP_CCS,Emissions|CO2|Energy|Demand|Residential and Commercial
+HLR_Heatpump_Aerial,Emissions|CO2|Energy|Demand|Residential and Commercial
+HLR_Heatpump_Ground,Emissions|CO2|Energy|Demand|Residential and Commercial
+HLR_Lignite,Emissions|CO2|Energy|Demand|Residential and Commercial
+HLR_Lignite_CHP,Emissions|CO2|Energy|Demand|Residential and Commercial
+HLR_Lignite_CHP_CCS,Emissions|CO2|Energy|Demand|Residential and Commercial
+HLR_Oil_Boiler,Emissions|CO2|Energy|Demand|Residential and Commercial
+HLR_Solar_Thermal,Emissions|CO2|Energy|Demand|Residential and Commercial
+HHI_BF_BOF,Emissions|CO2|Energy|Demand|Industry
+HHI_BF_BOF_CCS,Emissions|CO2|Energy|Demand|Industry
+HHI_Bio_BF_BOF,Emissions|CO2|Energy|Demand|Industry
+HHI_DRI_EAF,Emissions|CO2|Energy|Demand|Industry
+HHI_DRI_EAF_CCS,Emissions|CO2|Energy|Demand|Industry
+HHI_H2DRI_EAF,Emissions|CO2|Energy|Demand|Industry
+HHI_Molten_Electrolysis,Emissions|CO2|Energy|Demand|Industry
+HHI_Scrap_EAF,Emissions|CO2|Energy|Demand|Industry
+HLI_Biomass,Emissions|CO2|Energy|Demand|Industry
+HLI_Biomass_CHP,Emissions|CO2|Energy|Demand|Industry
+HLI_Biomass_CHP_CCS,Emissions|CO2|Energy|Demand|Industry
+HLI_Direct_Electric,Emissions|CO2|Energy|Demand|Industry
+HLI_Fuelcell,Emissions|CO2|Energy|Demand|Industry
+HLI_Gas_Boiler,Emissions|CO2|Energy|Demand|Industry
+HLI_Gas_CHP,Emissions|CO2|Energy|Demand|Industry
+HLI_Geothermal,Emissions|CO2|Energy|Demand|Industry
+HLI_H2_Boiler,Emissions|CO2|Energy|Demand|Industry
+HLI_Hardcoal,Emissions|CO2|Energy|Demand|Industry
+HLI_Hardcoal_CHP,Emissions|CO2|Energy|Demand|Industry
+HLI_Hardcoal_CHP_CCS,Emissions|CO2|Energy|Demand|Industry
+HLI_Lignite,Emissions|CO2|Energy|Demand|Industry
+HLI_Lignite_CHP,Emissions|CO2|Energy|Demand|Industry
+HLI_Lignite_CHP_CCS,Emissions|CO2|Energy|Demand|Industry
+HLI_Oil_Boiler,Emissions|CO2|Energy|Demand|Industry
+HLI_Oil_CHP,Emissions|CO2|Energy|Demand|Industry
+HLI_Solar_Thermal,Emissions|CO2|Energy|Demand|Industry
+HMI_Biomass,Emissions|CO2|Energy|Demand|Industry
+HMI_Gas,Emissions|CO2|Energy|Demand|Industry
+HMI_Gas_CCS,Emissions|CO2|Energy|Demand|Industry
+HMI_HardCoal,Emissions|CO2|Energy|Demand|Industry
+HMI_HardCoal_CCS,Emissions|CO2|Energy|Demand|Industry
+HMI_Oil,Emissions|CO2|Energy|Demand|Industry
+HMI_Steam_Electric,Emissions|CO2|Energy|Demand|Industry
+PSNG_Air_Bio,Emissions|CO2|Energy|Demand|Transportation
+PSNG_Air_Conv,Emissions|CO2|Energy|Demand|Transportation
+PSNG_Air_H2,Emissions|CO2|Energy|Demand|Transportation
+FRT_Ship_Bio,Emissions|CO2|Energy|Demand|Transportation
+FRT_Ship_Conv,Emissions|CO2|Energy|Demand|Transportation
+FRT_Ship_LNG,Emissions|CO2|Energy|Demand|Transportation
+FRT_Rail_Conv,Emissions|CO2|Energy|Demand|Transportation
+FRT_Rail_Electric,Emissions|CO2|Energy|Demand|Transportation
+PSNG_Rail_Conv,Emissions|CO2|Energy|Demand|Transportation
+PSNG_Rail_Electric,Emissions|CO2|Energy|Demand|Transportation
+FRT_Road_BEV,Emissions|CO2|Energy|Demand|Transportation
+FRT_Road_H2,Emissions|CO2|Energy|Demand|Transportation
+FRT_Road_ICE,Emissions|CO2|Energy|Demand|Transportation
+FRT_Road_LNG,Emissions|CO2|Energy|Demand|Transportation
+FRT_Road_OH,Emissions|CO2|Energy|Demand|Transportation
+FRT_Road_PHEV,Emissions|CO2|Energy|Demand|Transportation
+PSNG_Road_BEV,Emissions|CO2|Energy|Demand|Transportation
+PSNG_Road_H2,Emissions|CO2|Energy|Demand|Transportation
+PSNG_Road_ICE,Emissions|CO2|Energy|Demand|Transportation
+PSNG_Road_LNG,Emissions|CO2|Energy|Demand|Transportation
+PSNG_Road_PHEV,Emissions|CO2|Energy|Demand|Transportation
+P_Biomass,Emissions|CO2|Energy|Supply|Electricity
+P_Biomass_CCS,Emissions|CO2|Energy|Supply|Electricity
+P_Coal_Hardcoal,Emissions|CO2|Energy|Supply|Electricity
+P_Coal_Hardcoal_CCS,Emissions|CO2|Energy|Supply|Electricity
+P_Coal_Lignite,Emissions|CO2|Energy|Supply|Electricity
+P_Coal_Lignite_CCS,Emissions|CO2|Energy|Supply|Electricity
+P_Gas,Emissions|CO2|Energy|Supply|Electricity
+P_Gas_CCS,Emissions|CO2|Energy|Supply|Electricity
+P_H2_OCGT,Emissions|CO2|Energy|Supply|Electricity
+P_Nuclear,Emissions|CO2|Energy|Supply|Electricity
+P_Oil,Emissions|CO2|Energy|Supply|Electricity

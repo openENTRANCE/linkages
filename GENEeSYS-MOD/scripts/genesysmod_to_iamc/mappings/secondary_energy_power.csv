@@ -1,0 +1,55 @@
+P_Coal_Hardcoal,Electricity|Coal|w/o CCS
+P_Coal_Lignite,Electricity|Coal|w/o CCS
+P_Gas,Electricity|Gas|w/o CCS
+P_Nuclear,Electricity|Nuclear
+P_Oil,Electricity|Oil|w/o CCS
+P_Biomass,Electricity|Biomass|w/o CCS
+RES_CSP,Electricity|Solar|CSP
+RES_CSP_Storage,Electricity|Solar|CSP
+RES_Geothermal,Electricity|Geothermal
+RES_Hydro_Large,Electricity|Hydro
+RES_Hydro_Small,Electricity|Hydro
+RES_Ocean,Electricity|Ocean
+RES_PV_Rooftop_Commercial,Electricity|Solar|PV
+RES_PV_Rooftop_Residential,Electricity|Solar|PV
+RES_PV_Utility_Avg,Electricity|Solar|PV
+RES_PV_Utility_Inf,Electricity|Solar|PV
+RES_PV_Utility_Opt,Electricity|Solar|PV
+RES_Wind_Offshore_Transitional,Electricity|Wind|Offshore
+RES_Wind_Offshore_Shallow,Electricity|Wind|Offshore
+RES_Wind_Offshore_Deep,Electricity|Wind|Offshore
+RES_Wind_Onshore_Avg,Electricity|Wind|Onshore
+RES_Wind_Onshore_Inf,Electricity|Wind|Onshore
+RES_Wind_Onshore_Opt,Electricity|Wind|Onshore
+P_Biomass_CCS,Electricity|Biomass|w/ CCS
+P_Coal_Hardcoal_CCS,Electricity|Coal|w/ CCS
+P_Coal_Lignite_CCS,Electricity|Coal|w/ CCS
+P_Gas_CCS,Electricity|Gas|w/ CCS
+HLI_Fuelcell,Electricity|Other
+HLI_Fuelcell,Electricity|Other
+X_Fuel_Cell,Electricity|Other
+HLR_Gas_CHP,Electricity|Gas|w/o CCS
+HLR_Biomass_CHP,Electricity|Biomass|w/o CCS
+HLR_Hardcoal_CHP,Electricity|Coal|w/o CCS
+HLR_Hardcoal_CHP,Electricity|Coal|w/o CCS
+HLR_Lignite_CHP,Electricity|Coal|w/o CCS
+HLR_Lignite_CHP,Electricity|Coal|w/o CCS
+HLI_Gas_CHP,Electricity|Gas|w/o CCS
+HLI_Biomass_CHP,Electricity|Biomass|w/o CCS
+HLI_Hardcoal_CHP,Electricity|Coal|w/o CCS
+HLI_Lignite_CHP,Electricity|Coal|w/o CCS
+HLI_Oil_CHP,Electricity|Oil
+HLI_Biomass_CHP_CCS,Electricity|Biomass|w/ CCS
+HLI_Hardcoal_CHP_CCS,Electricity|Coal|w/ CCS
+HLI_Lignite_CHP_CCS,Electricity|Coal|w/ CCS
+HLR_Biomass_CHP_CCS,Electricity|Biomass|w/ CCS
+HLR_Hardcoal_CHP_CCS,Electricity|Coal|w/ CCS
+HLR_Lignite_CHP_CCS,Electricity|Coal|w/ CCS
+P_H2_OCGT,Electricity|Other
+CHP_Biomass,Electricity|Biomass|w/ CCS
+CHP_Coal_Hardcoal,Electricity|Coal|w/o CCS
+CHP_Coal_Lignite,Electricity|Coal|w/o CCS
+CHP_Gas,Electricity|Gas|w/o CCS
+CHP_Nuclear,Electricity|Nuclear
+CHP_Biomass_CCS,Electricity|Biomass|w/ CCS
+CHP_Oil,Electricity|Oil|w/o CCS
