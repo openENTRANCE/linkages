@@ -1,0 +1,12 @@
+Gas_Natural,Gases
+Gas_Bio,Gases
+Gas_Synth,Gases
+Hydrogen,Hydrogen
+H2,Hydrogen
+Biomass,Solids|Biomass
+Hardcoal,Solids|Coal
+Lignite,Solids|Coal
+Oil,Liquids|Oil
+Biofuel,Liquids|Biomass
+Powerfuel,Hydrogen
+Power,Electricity

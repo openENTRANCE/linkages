@@ -1,0 +1,21 @@
+#RES_Grass,Solids|Biomass
+#RES_Wood,Solids|Biomass
+#RES_Residues,Solids|Biomass
+#RES_Paper_Cardboard,Solids|Biomass
+#RES_Roundwood,Solids|Biomass
+#RES_Biogas,Gases|Biomass
+#RES_Biomass,Solids|Biomass
+X_Electrolysis,Hydrogen|Electricity
+X_Methanation,Gases|Biomass
+X_SMR,Hydrogen|Gas|w/o CCS
+X_SMR_CCS,Hydrogen|Gas|w/ CCS
+X_Biofuel,Liquids|Biomass
+X_Powerfuel,Liquids|Other
+#R_Coal_Hardcoal,Solids|Coal
+#R_Coal_Lignite,Solids|Coal
+#R_Gas,Gases|Natural Gas
+#R_Oil,Liquids|Oil
+Z_Import_Gas,Gases|Natural Gas
+Z_Import_Hardcoal,Solids|Coal
+Z_Import_Oil,Liquids|Oil
+Z_Import_LNG,Gases|Natural Gas

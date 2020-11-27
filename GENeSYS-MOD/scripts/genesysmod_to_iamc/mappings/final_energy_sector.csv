@@ -1,0 +1,72 @@
+HHI_BF_BOF,Final Energy|Industry
+HHI_BF_BOF_CCS,Final Energy|Industry
+HHI_Bio_BF_BOF,Final Energy|Industry
+HHI_DRI_EAF,Final Energy|Industry
+HHI_DRI_EAF_CCS,Final Energy|Industry
+HHI_H2DRI_EAF,Final Energy|Industry
+HHI_Molten_Electrolysis,Final Energy|Industry
+HHI_Scrap_EAF,Final Energy|Industry
+HLI_Biomass,Final Energy|Industry
+HLI_Biomass_CHP,Final Energy|Industry
+HLI_Biomass_CHP_CCS,Final Energy|Industry
+HLI_Direct_Electric,Final Energy|Industry
+HLI_Fuelcell,Final Energy|Industry
+HLI_Gas_Boiler,Final Energy|Industry
+HLI_Gas_CHP,Final Energy|Industry
+HLI_Geothermal,Final Energy|Industry
+HLI_H2_Boiler,Final Energy|Industry
+HLI_Hardcoal,Final Energy|Industry
+HLI_Hardcoal_CHP,Final Energy|Industry
+HLI_Hardcoal_CHP_CCS,Final Energy|Industry
+HLI_Lignite,Final Energy|Industry
+HLI_Lignite_CHP,Final Energy|Industry
+HLI_Lignite_CHP_CCS,Final Energy|Industry
+HLI_Oil_Boiler,Final Energy|Industry
+HLI_Oil_CHP,Final Energy|Industry
+HLI_Solar_Thermal,Final Energy|Industry
+HMI_Biomass,Final Energy|Industry
+HMI_Gas,Final Energy|Industry
+HMI_Gas_CCS,Final Energy|Industry
+HMI_HardCoal,Final Energy|Industry
+HMI_HardCoal_CCS,Final Energy|Industry
+HMI_Oil,Final Energy|Industry
+HMI_Steam_Electric,Final Energy|Industry
+HLR_Biomass,Final Energy|Residential and Commercial
+HLR_Biomass_CHP,Final Energy|Residential and Commercial
+HLR_Biomass_CHP_CCS,Final Energy|Residential and Commercial
+HLR_Direct_Electric,Final Energy|Residential and Commercial
+HLR_Gas_Boiler,Final Energy|Residential and Commercial
+HLR_Gas_CHP,Final Energy|Residential and Commercial
+HLR_Geothermal,Final Energy|Residential and Commercial
+HLR_H2_Boiler,Final Energy|Residential and Commercial
+HLR_Hardcoal,Final Energy|Residential and Commercial
+HLR_Hardcoal_CHP,Final Energy|Residential and Commercial
+HLR_Hardcoal_CHP_CCS,Final Energy|Residential and Commercial
+HLR_Heatpump_Aerial,Final Energy|Residential and Commercial
+HLR_Heatpump_Ground,Final Energy|Residential and Commercial
+HLR_Lignite,Final Energy|Residential and Commercial
+HLR_Lignite_CHP,Final Energy|Residential and Commercial
+HLR_Lignite_CHP_CCS,Final Energy|Residential and Commercial
+HLR_Oil_Boiler,Final Energy|Residential and Commercial
+HLR_Solar_Thermal,Final Energy|Residential and Commercial
+FRT_Rail_Conv,Final Energy|Transportation
+FRT_Rail_Electric,Final Energy|Transportation
+FRT_Road_BEV,Final Energy|Transportation
+FRT_Road_H2,Final Energy|Transportation
+FRT_Road_ICE,Final Energy|Transportation
+FRT_Road_LNG,Final Energy|Transportation
+FRT_Road_OH,Final Energy|Transportation
+FRT_Road_PHEV,Final Energy|Transportation
+FRT_Ship_Bio,Final Energy|Transportation
+FRT_Ship_Conv,Final Energy|Transportation
+FRT_Ship_LNG,Final Energy|Transportation
+PSNG_Air_Bio,Final Energy|Transportation
+PSNG_Air_Conv,Final Energy|Transportation
+PSNG_Air_H2,Final Energy|Transportation
+PSNG_Rail_Conv,Final Energy|Transportation
+PSNG_Rail_Electric,Final Energy|Transportation
+PSNG_Road_BEV,Final Energy|Transportation
+PSNG_Road_H2,Final Energy|Transportation
+PSNG_Road_ICE,Final Energy|Transportation
+PSNG_Road_LNG,Final Energy|Transportation
+PSNG_Road_PHEV,Final Energy|Transportation
