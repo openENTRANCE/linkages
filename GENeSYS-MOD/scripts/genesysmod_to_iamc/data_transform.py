@@ -184,7 +184,7 @@ def generate_storage_capacity_values(data_wrapper: dw.DataWrapper):
     capacity_values = capacity_values[capacity_values['type'] == 'TotalCapacity']
     capacity_values['unit'] = 'GWh'
 
-    comines = []
+    combines = []
 
     for entry in map_capacity_technology:
         capacity_value = capacity_values[capacity_values['technology'] == entry].copy()
@@ -195,9 +195,9 @@ def generate_storage_capacity_values(data_wrapper: dw.DataWrapper):
         capacity_value['value'] = abs(capacity_value['value'])*map_e2p_ratios[map_capacity_technology[entry]]
         capacity_value['subannual'] = 'Year'
 
-        comines.append(capacity_value)
+        combines.append(capacity_value)
 
-    capacity_values = pd.concat(comines)
+    capacity_values = pd.concat(combines)
 
     capacity_values = _set_scenarios(capacity_values)
 
@@ -225,7 +225,7 @@ def generate_transport_capacity_values(data_wrapper: dw.DataWrapper):
 
     capacity_values['model'] = DEF_MODEL_AND_VERSION
     for entry in map_units_technology:
-        capacity_values = capacity_values.replace({'unit': entry}, map_units_technology[entry])
+        capacity_values.loc[(capacity_values['technology'] == 'Energy Service|' + entry), 'unit'] = map_units_technology[entry]
 
     capacity_values['value'] = abs(capacity_values['value'])
     capacity_values['subannual'] = 'Year'
@@ -408,6 +408,9 @@ def _generate_exogenous_transport_costs_values(data_wrapper: dw.DataWrapper, cos
         cost_values = cost_values.replace({'technology': entry},
                                           cost_type[:-1] + '|' + map_capacity_technology[entry])
 
+    for entry in map_units_technology:
+        cost_values.loc[(cost_values['technology'] == cost_type[:-1] + '|' + entry), 'unit'] = map_units_technology[entry][1:-3]
+
     if cost_type == "Capital Costs":
         cost_values['unit'] = 'US$2010/' + cost_values['unit']
         cost_values['value'] = abs(cost_values['value']) * convert_eur_to2010_dollar
@@ -443,12 +446,10 @@ def generate_co2_prices(data_wrapper: dw.DataWrapper):
     cost_values = cost_values[cost_values['type'] == 'Carbon Price']
     cost_values = cost_values[cost_values['technology'] == 'Carbon']
 
-    convert_eur_to2010_dollar = 1 / 1.08 * 1.17
-
     cost_values['technology'] = 'Price|Carbon'
-    cost_values['unit'] = 'US$2010/t CO2'
+    cost_values['unit'] = 'EUR/t CO2'
     cost_values['model'] = DEF_MODEL_AND_VERSION
-    cost_values['value'] = abs(cost_values['value']) * convert_eur_to2010_dollar
+    cost_values['value'] = abs(cost_values['value'])
     cost_values['subannual'] = 'Year'
     cost_values['scenario'] = DEF_MAP_FILE_SCENARIOS[data_wrapper.input_file]
 

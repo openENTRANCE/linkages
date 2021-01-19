@@ -55,57 +55,57 @@ CHP_Gas,Electricity|Gas|w/o CCS
 CHP_Nuclear,Electricity|Nuclear
 CHP_Biomass_CCS,Electricity|Biomass|w/ CCS
 CHP_Oil,Electricity|Oil|w/o CCS
-HLR_Gas_Boiler,Residential and Commercial Heat|Gas
-HLR_Gas_CHP,Residential and Commercial Heat|Gas
-HLR_Biomass,Residential and Commercial Heat|Biomass
-HLR_Biomass_CHP,Residential and Commercial Heat|Biomass
-HLR_Hardcoal,Residential and Commercial Heat|Coal
-HLR_Lignite,Residential and Commercial Heat|Coal
-HLR_Hardcoal_CHP,Residential and Commercial Heat|Coal
-HLR_Lignite_CHP,Residential and Commercial Heat|Coal
-HLR_Direct_Electric,Residential and Commercial Heat|Electricity|Other
-HLR_Solar_Thermal,Residential and Commercial Heat|Solar
-HLR_Heatpump_Aerial,Residential and Commercial Heat|Electricity|Heatpump
-HLR_Heatpump_Ground,Residential and Commercial Heat|Electricity|Heatpump
-HLR_Geothermal,Residential and Commercial Heat|Geothermal
-HLR_Oil_Boiler,Residential and Commercial Heat|Oil
-HLI_Gas_Boiler,Industrial Heat|Gas
-HLI_Gas_CHP,Industrial Heat|Gas
-HLI_Biomass,Industrial Heat|Biomass
-HLI_Biomass_CHP,Industrial Heat|Biomass
-HLI_Hardcoal,Industrial Heat|Coal
-HLI_Lignite,Industrial Heat|Coal
-HLI_Hardcoal_CHP,Industrial Heat|Coal
-HLI_Lignite_CHP,Industrial Heat|Coal
-HLI_Direct_Electric,Industrial Heat|Electricity
-HLI_Solar_Thermal,Industrial Heat|Solar
-HLI_Fuelcell,Industrial Heat|Hydrogen
-HLI_Geothermal,Industrial Heat|Geothermal
-HLI_Oil_Boiler,Industrial Heat|Oil
-HLI_Oil_CHP,Industrial Heat|Coal
-HMI_Gas,Industrial Heat|Gas
-HMI_Biomass,Industrial Heat|Biomass
-HMI_HardCoal,Industrial Heat|Coal
-HMI_Steam_Electric,Industrial Heat|Electricity
-HMI_Oil,Industrial Heat|Oil
-HHI_BF_BOF,Industrial Heat|Coal
-HHI_DRI_EAF,Industrial Heat|Gas
-HHI_Scrap_EAF,Industrial Heat|Electricity
-HHI_H2DRI_EAF,Industrial Heat|Hydrogen
-HHI_Molten_Electrolysis,Industrial Heat|Electricity
-HHI_Bio_BF_BOF,Industrial Heat|Biomass
-HHI_BF_BOF_CCS,Industrial Heat|Coal
-HHI_DRI_EAF_CCS,Industrial Heat|Gas
-HLI_Biomass_CHP_CCS,Industrial Heat|Biomass
-HLI_Hardcoal_CHP_CCS,Industrial Heat|Coal
-HLI_Lignite_CHP_CCS,Industrial Heat|Coal
-HLR_Biomass_CHP_CCS,Residential and Commercial Heat|Biomass
-HLR_Hardcoal_CHP_CCS,Residential and Commercial Heat|Coal
-HLR_Lignite_CHP_CCS,Residential and Commercial Heat|Coal
-HMI_Gas_CCS,Industrial Heat|Gas
-HMI_HardCoal_CCS,Industrial Heat|Coal
-HLR_H2_Boiler,Industrial Heat|Hydrogen
-HLI_H2_Boiler,Industrial Heat|Hydrogen
+HLR_Gas_Boiler,Heat|Residential and Commercial|Gas
+HLR_Gas_CHP,Heat|Residential and Commercial|Gas
+HLR_Biomass,Heat|Residential and Commercial|Biomass
+HLR_Biomass_CHP,Heat|Residential and Commercial|Biomass
+HLR_Hardcoal,Heat|Residential and Commercial|Coal
+HLR_Lignite,Heat|Residential and Commercial|Coal
+HLR_Hardcoal_CHP,Heat|Residential and Commercial|Coal
+HLR_Lignite_CHP,Heat|Residential and Commercial|Coal
+HLR_Direct_Electric,Heat|Residential and Commercial|Electricity|Other
+HLR_Solar_Thermal,Heat|Residential and Commercial|Solar
+HLR_Heatpump_Aerial,Heat|Residential and Commercial|Electricity|Heatpump
+HLR_Heatpump_Ground,Heat|Residential and Commercial|Electricity|Heatpump
+HLR_Geothermal,Heat|Residential and Commercial|Geothermal
+HLR_Oil_Boiler,Heat|Residential and Commercial|Oil
+HLI_Gas_Boiler,Heat|Industrial|Gas
+HLI_Gas_CHP,Heat|Industrial|Gas
+HLI_Biomass,Heat|Industrial|Biomass
+HLI_Biomass_CHP,Heat|Industrial|Biomass
+HLI_Hardcoal,Heat|Industrial|Coal
+HLI_Lignite,Heat|Industrial|Coal
+HLI_Hardcoal_CHP,Heat|Industrial|Coal
+HLI_Lignite_CHP,Heat|Industrial|Coal
+HLI_Direct_Electric,Heat|Industrial|Electricity
+HLI_Solar_Thermal,Heat|Industrial|Solar
+HLI_Fuelcell,Heat|Industrial|Hydrogen
+HLI_Geothermal,Heat|Industrial|Geothermal
+HLI_Oil_Boiler,Heat|Industrial|Oil
+HLI_Oil_CHP,Heat|Industrial|Coal
+HMI_Gas,Heat|Industrial|Gas
+HMI_Biomass,Heat|Industrial|Biomass
+HMI_HardCoal,Heat|Industrial|Coal
+HMI_Steam_Electric,Heat|Industrial|Electricity
+HMI_Oil,Heat|Industrial|Oil
+HHI_BF_BOF,Heat|Industrial|Coal
+HHI_DRI_EAF,Heat|Industrial|Gas
+HHI_Scrap_EAF,Heat|Industrial|Electricity
+HHI_H2DRI_EAF,Heat|Industrial|Hydrogen
+HHI_Molten_Electrolysis,Heat|Industrial|Electricity
+HHI_Bio_BF_BOF,Heat|Industrial|Biomass
+HHI_BF_BOF_CCS,Heat|Industrial|Coal
+HHI_DRI_EAF_CCS,Heat|Industrial|Gas
+HLI_Biomass_CHP_CCS,Heat|Industrial|Biomass
+HLI_Hardcoal_CHP_CCS,Heat|Industrial|Coal
+HLI_Lignite_CHP_CCS,Heat|Industrial|Coal
+HLR_Biomass_CHP_CCS,Heat|Residential and Commercial|Biomass
+HLR_Hardcoal_CHP_CCS,Heat|Residential and Commercial|Coal
+HLR_Lignite_CHP_CCS,Heat|Residential and Commercial|Coal
+HMI_Gas_CCS,Heat|Industrial|Gas
+HMI_HardCoal_CCS,Heat|Industrial|Coal
+HLR_H2_Boiler,Heat|Industrial|Hydrogen
+HLI_H2_Boiler,Heat|Industrial|Hydrogen
 
 
 
