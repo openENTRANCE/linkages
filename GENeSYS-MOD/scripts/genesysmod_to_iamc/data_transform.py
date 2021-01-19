@@ -182,17 +182,22 @@ def generate_storage_capacity_values(data_wrapper: dw.DataWrapper):
 
     capacity_values = data_wrapper.capacity_values.copy()
     capacity_values = capacity_values[capacity_values['type'] == 'TotalCapacity']
-    capacity_values['unit'] = 'GWh'
 
     combines = []
 
     for entry in map_capacity_technology:
-        capacity_value = capacity_values[capacity_values['technology'] == entry].copy()
 
+        capacity_value = capacity_values[capacity_values['technology'] == entry].copy()
         capacity_value = capacity_value.replace({'technology': entry}, map_capacity_technology[entry])
 
+        if map_capacity_technology[entry] == 'Maximum Storage|Electricity|Hydro|Pumped Storage':
+            capacity_value['unit'] = 'MWh'
+            capacity_value['value'] = abs(capacity_value['value']) * map_e2p_ratios[map_capacity_technology[entry]]*1000
+        else:
+            capacity_value['unit'] = 'GWh'
+            capacity_value['value'] = abs(capacity_value['value']) * map_e2p_ratios[map_capacity_technology[entry]]
+
         capacity_value['model'] = DEF_MODEL_AND_VERSION
-        capacity_value['value'] = abs(capacity_value['value'])*map_e2p_ratios[map_capacity_technology[entry]]
         capacity_value['subannual'] = 'Year'
 
         combines.append(capacity_value)

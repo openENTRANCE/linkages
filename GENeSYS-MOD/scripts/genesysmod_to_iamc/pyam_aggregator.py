@@ -56,6 +56,10 @@ def generate_idataframe(data_wrapper, filter_only_yearly_values=False):
                              , 'Final Energy|Transportation'
                              , 'Final Energy|ElectricityDummy'], append=True, recursive=False)
 
+    idataframe.data = changeFinalEnergyToGWh(idataframe.data, 'Final Energy|Electricity|Transportation')
+    idataframe.data = changeFinalEnergyToGWh(idataframe.data, 'Final Energy|Electricity|Other (excl. Heat, Cooling, Transport)')
+    idataframe.data = changeFinalEnergyToGWh(idataframe.data, 'Final Energy|Electricity|Heat')
+
     idataframe.data = idataframe.data[idataframe.data['variable'] != 'Final Energy|ElectricityDummy']
 
     idataframe.aggregate_region(variable='Final Energy|*', append=True)
@@ -128,6 +132,15 @@ def generate_idataframe(data_wrapper, filter_only_yearly_values=False):
         idataframe.filter(subannual='Year', inplace=True)
 
     return idataframe
+
+
+def changeFinalEnergyToGWh(final_energy, variable):
+    final_energy.loc[(final_energy['variable'] == variable), 'value'] \
+        = final_energy.loc[
+              (final_energy['variable'] == variable), 'value'] * 1000 * 1000 / 3.6
+    final_energy.loc[(final_energy['variable'] == variable), 'unit'] = 'GWh/yr'
+
+    return final_energy
 
 
 def generate_idataframe_renewable_series(data_wrapper):
