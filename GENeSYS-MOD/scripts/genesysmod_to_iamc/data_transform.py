@@ -479,6 +479,7 @@ def generate_exogenous_costs(data_wrapper: dw.DataWrapper):
 
 def generate_load_factors(data_wrapper: dw.DataWrapper):
     _generate_load_factors(data_wrapper, "SolarPVProfile.csv", "Solar")
+    _generate_load_factors(data_wrapper, "HydroRoRProfile.csv", "Hydro|Run of River")
     _generate_load_factors(data_wrapper, "WindOffshoreProfile.csv", "Wind|OffShore")
     _generate_load_factors(data_wrapper, "WindOnshoreProfile.csv", "Wind|OnShore")
 
