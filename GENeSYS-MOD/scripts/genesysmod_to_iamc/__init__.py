@@ -54,6 +54,7 @@ def generate_combined_excel():
 def _generate_yearly_values(input_file):
     data_wrapper = dr.load_gdx_file(input_file, DEF_GAMS_DIR)
 
+    dt.generate_transmission_capacity_values(data_wrapper)
     dt.generate_load_demand_series(data_wrapper)
     dt.generate_primary_energy_values(data_wrapper)
     dt.generate_final_energy_values(data_wrapper)
