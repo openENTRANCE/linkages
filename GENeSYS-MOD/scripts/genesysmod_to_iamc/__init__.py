@@ -9,6 +9,7 @@ import nomenclature
 import pyam
 
 import logging
+import os
 
 logging.basicConfig(level=logging.INFO)
 
@@ -22,6 +23,13 @@ class Pathways(Enum):
 
 def generate_data(input_file: str, generate_series_data: bool = False, generate_load_factors: bool = False,
                   combine_outputs: bool = False):
+
+    try:
+        os.makedirs(DEF_OUTPUT_PATH)
+    except OSError as e:
+        if e.errno != errno.EEXIST:
+            raise
+
     data_wrapper = _generate_yearly_values(input_file)
     output_name = data_wrapper.input_file + "_yearly.csv"
     data_wrapper.idataframe.to_csv(DEF_OUTPUT_PATH / output_name)
