@@ -538,7 +538,7 @@ def _generate_load_factors(data_wrapper: dw.DataWrapper, csv_file: str, nomencla
 
     dataframe['scenario'] = DEF_MAP_FILE_SCENARIOS[data_wrapper.input_file]
     dataframe['unit'] = '%'
-    dataframe['technology'] = 'LoadFactor|Electricity|' + nomenclature_name + '|Profile'
+    dataframe['technology'] = 'Load Factor|Electricity|' + nomenclature_name
     dataframe['model'] = DEF_MODEL_AND_VERSION
 
     frames = []
