@@ -43,11 +43,11 @@ def generate_data(input_file: str, generate_series_data: bool = False, generate_
         _combine_data(input_file, generate_series_data, generate_load_factors)
 
 
-def generate_combined_excel():
+def generate_combined_excel_yearly():
     lst = []
 
     for file in Pathways:
-        filename = file.value + '_combined.csv'
+        filename = file.value + '_yearly.csv'
         df = pyam.IamDataFrame(str(DEF_OUTPUT_PATH / filename))
         lst.append(df)
 
