@@ -104,7 +104,7 @@ def generate_final_energy_values(data_wrapper: dw.DataWrapper):
 
     use_electricity_values = data_wrapper.usage_values.copy()
     use_electricity_values = use_electricity_values[use_electricity_values['fuel'] == 'Power']
-    use_electricity_values = use_electricity_values[use_electricity_values['technology'] == 'Power_Demand']
+    use_electricity_values = use_electricity_values[use_electricity_values['technology'] == 'Demand']
     use_electricity_values['fuel'] = 'Final Energy|ElectricityDummy'
 
     use_heat_values = _extract_final_energy_heat(data_wrapper)
@@ -130,16 +130,16 @@ def _extract_final_energy_heat(data_wrapper):
     raw = data_wrapper.usage_values.copy()
 
     hlr = raw[raw['fuel'] == 'Heat_Low_Residential'].copy()
-    hlr = hlr[hlr['technology'] == 'Heat_Low_Residential_Demand']
+    hlr = hlr[hlr['technology'] == 'Demand']
 
     hli = raw[raw['fuel'] == 'Heat_Low_Industrial'].copy()
-    hli = hli[hli['technology'] == 'Heat_Low_Residential_Demand']
+    hli = hli[hli['technology'] == 'Demand']
 
     hmi = raw[raw['fuel'] == 'Heat_Medium_Industrial'].copy()
-    hmi = hmi[hmi['technology'] == 'Heat_Medium_Industrial_Demand']
+    hmi = hmi[hmi['technology'] == 'Demand']
 
     hhi = raw[raw['fuel'] == 'Heat_High_Industrial'].copy()
-    hhi = hhi[hhi['technology'] == 'Heat_High_Industrial_Demand']
+    hhi = hhi[hhi['technology'] == 'Demand']
 
     heat = pd.concat([hlr, hli, hmi, hhi])
 
@@ -173,6 +173,41 @@ def generate_capacity_values(data_wrapper: dw.DataWrapper):
     data_wrapper.transformed_data['capacity'] = capacity_values
 
     return capacity_values
+
+
+def generate_transmission_capacity_values(data_wrapper: dw.DataWrapper):
+    logging.info('Executing: generate_transmission_capacity_values')
+
+    trade_values = data_wrapper.trade_capacity_values.copy()
+
+    trade_values['model'] = DEF_MODEL_AND_VERSION
+    trade_values['unit'] = 'MW'
+    trade_values['value'] = abs(trade_values['value'])*1000
+    trade_values['subannual'] = 'Year'
+    trade_values['variable'] = 'Maximum Flow|Electricity|Grid'
+    trade_values['scenario'] = DEF_MAP_FILE_SCENARIOS[data_wrapper.input_file]
+
+    trade_values = trade_values.replace({'region_to': 'UK'}, 'GB')
+    trade_values = trade_values.replace({'region_from': 'UK'}, 'GB')
+
+    iso2_mapping = dr.loadmap_iso2_countries()
+
+    for r in iso2_mapping:
+        trade_values = trade_values.replace({'region_from': r}, iso2_mapping[r])
+        trade_values = trade_values.replace({'region_to': r}, iso2_mapping[r])
+
+    trade_values = trade_values.replace({'region_to': 'NONEU_Balkan'}, 'Non-EU-Balkans')
+    trade_values = trade_values.replace({'region_from': 'NONEU_Balkan'}, 'Non-EU-Balkans')
+
+    trade_values['region'] = trade_values['region_from'] + ">" + trade_values['region_to']
+
+    trade_values = trade_values.groupby(
+        ['model', 'scenario', 'region', 'variable', 'unit', 'subannual', 'year']).sum().reset_index()
+    trade_values.columns = ['Model', 'Scenario', 'Region', 'Variable', 'Unit', 'Subannual', 'Year', 'Value']
+
+    data_wrapper.transformed_data['transmission'] = trade_values
+
+    return trade_values
 
 
 def generate_storage_capacity_values(data_wrapper: dw.DataWrapper):
@@ -479,8 +514,9 @@ def generate_exogenous_costs(data_wrapper: dw.DataWrapper):
 
 def generate_load_factors(data_wrapper: dw.DataWrapper):
     _generate_load_factors(data_wrapper, "SolarPVProfile.csv", "Solar")
-    _generate_load_factors(data_wrapper, "WindOffshoreProfile.csv", "Wind|OffShore")
-    _generate_load_factors(data_wrapper, "WindOnshoreProfile.csv", "Wind|OnShore")
+    _generate_load_factors(data_wrapper, "HydroRoRProfile.csv", "Hydro|Run of River")
+    _generate_load_factors(data_wrapper, "WindOffshoreProfile.csv", "Wind|Offshore")
+    _generate_load_factors(data_wrapper, "WindOnshoreProfile.csv", "Wind|Onshore")
 
 
 def _generate_load_factors(data_wrapper: dw.DataWrapper, csv_file: str, nomenclature_name: str):
@@ -502,7 +538,7 @@ def _generate_load_factors(data_wrapper: dw.DataWrapper, csv_file: str, nomencla
 
     dataframe['scenario'] = DEF_MAP_FILE_SCENARIOS[data_wrapper.input_file]
     dataframe['unit'] = '%'
-    dataframe['technology'] = 'LoadFactor|Electricity|' + nomenclature_name + '|Profile'
+    dataframe['technology'] = 'Load Factor|Electricity|' + nomenclature_name
     dataframe['model'] = DEF_MODEL_AND_VERSION
 
     frames = []

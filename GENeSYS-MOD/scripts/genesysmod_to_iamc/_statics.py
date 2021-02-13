@@ -45,18 +45,25 @@ DEF_EXOGENOUS_COST_COLUMNS = ["region",
                               "type",
                               "year",
                               "value"]
+DEF_TRADE_CAPACITY_COLUMNS = ["region_from",
+                              "region_to",
+                              "type",
+                              "year",
+                              "value"]
 
-DEF_PRODUCTION_SHEET = 'excel_production'
-DEF_CAPACITY_SHEET = 'excel_capacity'
-DEF_EMISSION_SHEET = 'excel_emission'
-DEF_COST_SHEET = 'excel_costs'
-DEF_EXOGENOUS_COST_SHEET = 'excel_exogenous_costs'
+DEF_PRODUCTION_SHEET = 'output_energy_balance'
+DEF_CAPACITY_SHEET = 'output_capacity'
+DEF_EMISSION_SHEET = 'output_emissions'
+DEF_COST_SHEET = 'output_costs'
+DEF_EXOGENOUS_COST_SHEET = 'output_exogenous_costs'
+DEF_TRADE_CAPACITY_SHEET = 'output_trade_capacity'
 
 DEF_REGION_NAME = 'Europe (incl. Turkey)'
 
 DEF_MAP_SCENARIOS = {
     'TechnoFriendly_globalLimit': 'Techno-Friendly 1.0',
     'DirectedVision_globalLimit': 'Directed Transition 1.0',
+    'DirectedTransition_globalLimit': 'Directed Transition 1.0',
     'GradualDevelopment_globalLimit': 'Gradual Development 1.0',
     'SocietalCommitment_globalLimit': 'Societal Commitment 1.0',
 }

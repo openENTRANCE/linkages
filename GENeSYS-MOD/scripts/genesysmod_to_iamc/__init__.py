@@ -9,6 +9,7 @@ import nomenclature
 import pyam
 
 import logging
+import os
 
 logging.basicConfig(level=logging.INFO)
 
@@ -22,6 +23,10 @@ class Pathways(Enum):
 
 def generate_data(input_file: str, generate_series_data: bool = False, generate_load_factors: bool = False,
                   combine_outputs: bool = False):
+
+    if not os.path.exists(DEF_OUTPUT_PATH):
+        os.makedirs(DEF_OUTPUT_PATH)
+
     data_wrapper = _generate_yearly_values(input_file)
     output_name = data_wrapper.input_file + "_yearly.csv"
     data_wrapper.idataframe.to_csv(DEF_OUTPUT_PATH / output_name)
@@ -38,11 +43,11 @@ def generate_data(input_file: str, generate_series_data: bool = False, generate_
         _combine_data(input_file, generate_series_data, generate_load_factors)
 
 
-def generate_combined_excel():
+def generate_combined_excel_yearly():
     lst = []
 
     for file in Pathways:
-        filename = file.value + '_combined.csv'
+        filename = file.value + '_yearly.csv'
         df = pyam.IamDataFrame(str(DEF_OUTPUT_PATH / filename))
         lst.append(df)
 
@@ -54,6 +59,7 @@ def generate_combined_excel():
 def _generate_yearly_values(input_file):
     data_wrapper = dr.load_gdx_file(input_file, DEF_GAMS_DIR)
 
+    dt.generate_transmission_capacity_values(data_wrapper)
     dt.generate_load_demand_series(data_wrapper)
     dt.generate_primary_energy_values(data_wrapper)
     dt.generate_final_energy_values(data_wrapper)
