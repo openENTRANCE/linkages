@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5d0efa0d-b241-40ee-a4ec-aefa356769cd" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/TimeSeriesGenerator.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/TimeSeriesGenerator.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,9 +63,6 @@
       <module name="GENeSYS-MOD" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../../../../../MEGAsync/Thesis/DTU_courses/Project/ADMM" />
       <option name="IS_MODULE_SDK" value="false" />
@@ -85,9 +82,6 @@
       <module name="GENeSYS-MOD" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/scripts" />
       <option name="IS_MODULE_SDK" value="true" />
@@ -107,16 +101,13 @@
       <module name="GENeSYS-MOD" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$USER_HOME$/Downloads/Andres" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../../../../../MEGAsync/Thesis/DTU_courses/Project/ADMM" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$USER_HOME$/Downloads/Andres/openTEPES_advanced.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../../../../../MEGAsync/Thesis/DTU_courses/Project/ADMM/openTEPES_advanced.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="true" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -128,10 +119,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.openTEPES_advanced" />
-        <item itemvalue="Python.openTEPES_advanced" />
-        <item itemvalue="Python.openTEPES_advanced" />
-        <item itemvalue="Python.openTEPES_advanced" />
-        <item itemvalue="Python.openTEPES_advanced" />
+        <item itemvalue="Python.Lecture 12 ADMM Example" />
+        <item itemvalue="Python.TimeSeriesGenerator" />
+        <item itemvalue="Python.TimeSeriesGenerator" />
+        <item itemvalue="Python.TimeSeriesGenerator" />
       </list>
     </recent_temporary>
   </component>
@@ -156,9 +147,6 @@
       <workItem from="1612350449677" duration="45000" />
       <workItem from="1612350506369" duration="65000" />
       <workItem from="1612350580395" duration="16405000" />
-      <workItem from="1612775691491" duration="19545000" />
-      <workItem from="1612973680008" duration="3175000" />
-      <workItem from="1613151303327" duration="1202000" />
     </task>
     <servers />
   </component>
@@ -166,13 +154,9 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="656" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1613376270765">
+    <state x="656" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1612350580674">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="656" y="344" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1613376270765" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1612974324718">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1612974324718" />
+    <state x="656" y="344" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1612350580674" />
   </component>
 </project>

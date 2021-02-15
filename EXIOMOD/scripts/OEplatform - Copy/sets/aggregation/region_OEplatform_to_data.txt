@@ -1,0 +1,30 @@
+'Austria'.AT
+'Belgium'.BE
+'Bulgaria'.BG
+'Croatia'.HR
+'Czech Republic'.CZ
+'Denmark'.DK
+'Estonia'.EE
+'Finland'.FI
+'France'.FR
+'Germany'.DE
+'Greece'.GR
+'Hungary'.HU
+'Ireland'.IE
+'Italy'.IT
+'Latvia'.LV
+'Lithuania'.LT
+'Luxembourg'.LU
+'Non-EU-Balkans'.WE
+'Norway'.NO
+'Poland'.PL
+'Portugal'.PT
+'Romania'.RO
+'Slovakia'.SK
+'Slovenia'.SI
+'Spain'.ES
+'Sweden'.SE
+'Switzerland'.CH
+'The Netherlands'.NL
+'Turkey'.TR
+'United Kingdom'.GB
