@@ -63,7 +63,7 @@ def loadmap_iso2_countries():
         [(country_codelist[c]['iso2'], c) for c in country_codelist]
         # add alternative iso2 codes used by the European Commission to the mapping
         + [(country_codelist[c]['iso2_alt'], c) for c in country_codelist
-           if 'iso3_alt' in country_codelist[c]]
+           if 'iso2_alt' in country_codelist[c]]
     )
 
     return iso2_mapping

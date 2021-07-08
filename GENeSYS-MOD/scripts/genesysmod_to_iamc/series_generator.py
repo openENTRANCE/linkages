@@ -34,11 +34,13 @@ def generate_final_energy_series(data_wrapper: dw.DataWrapper, series_name: str,
     for year in DEF_YEARS:
         for region in regions:
             _yearly = _filtered.copy()
-            if region == 'UK':
-                region = 'GB'
+            #if region == 'UK':
+            #    region = 'GB'
 
             if region == 'NONEU_Balkan':
                 region_key = 'Non-EU-Balkans'
+            elif region == 'UK':
+                region_key = 'United Kingdom'
             else:
                 region_key = iso2_mapping[region]
 
