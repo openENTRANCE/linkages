@@ -56,11 +56,11 @@ def generate_idataframe(data_wrapper, filter_only_yearly_values=False):
                              , 'Final Energy|Transportation'
                              , 'Final Energy|ElectricityDummy'], append=True, recursive=False)
 
-    idataframe.data = changeFinalEnergyToGWh(idataframe.data, 'Final Energy|Electricity|Transportation')
-    idataframe.data = changeFinalEnergyToGWh(idataframe.data, 'Final Energy|Electricity|Other (excl. Heat, Cooling, Transport)')
-    idataframe.data = changeFinalEnergyToGWh(idataframe.data, 'Final Energy|Electricity|Heat')
+    idataframe = pyam.IamDataFrame(changeFinalEnergyToGWh(idataframe.data, 'Final Energy|Electricity|Transportation'))
+    idataframe = pyam.IamDataFrame(changeFinalEnergyToGWh(idataframe.data, 'Final Energy|Electricity|Other (excl. Heat, Cooling, Transport)'))
+    idataframe = pyam.IamDataFrame(changeFinalEnergyToGWh(idataframe.data, 'Final Energy|Electricity|Heat'))
 
-    idataframe.data = idataframe.data[idataframe.data['variable'] != 'Final Energy|ElectricityDummy']
+    idataframe = pyam.IamDataFrame(idataframe.data[idataframe.data['variable'] != 'Final Energy|ElectricityDummy'])
 
     idataframe.aggregate_region(variable='Final Energy|*', append=True)
 
@@ -118,14 +118,15 @@ def generate_idataframe(data_wrapper, filter_only_yearly_values=False):
     idataframe.aggregate(variable='Secondary Energy|Liquids', append=True, recursive=False)
     idataframe.aggregate_region(variable='Secondary Energy|*', append=True)
 
-    idataframe.data = idataframe.data.replace({'region': 'UK'}, 'GB')
+    idataframe = pyam.IamDataFrame(idataframe.data.replace({'region': 'UK'}, 'GB'))
 
     iso2_mapping = dr.loadmap_iso2_countries()
 
     for r in iso2_mapping:
-        idataframe.data = idataframe.data.replace({'region': r}, iso2_mapping[r])
+        idataframe.rename(region={r: iso2_mapping[r]}, inplace=True)
+        #idataframe = pyam.IamDataFrame(idataframe.data.replace({'region': r}, iso2_mapping[r]))
 
-    idataframe.data = idataframe.data.replace({'region': 'World'}, DEF_REGION_NAME)
+    idataframe = pyam.IamDataFrame(idataframe.data.replace({'region': 'World'}, DEF_REGION_NAME))
     idataframe.rename(region={'NONEU_Balkan': 'Non-EU-Balkans'}, inplace=True)
 
     if filter_only_yearly_values:
