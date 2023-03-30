@@ -23,6 +23,7 @@ def write_IAMC(output_df, model, scenario, region, variable, unit, time, values)
     output_df = output_df.append(_df)
     return output_df
 
+# Example of code
 output_df = pd.DataFrame()
 model = 'FRESH:COM v2.0'
 scenario = 'openENTRANCE_CS2_Societal_Commitment'
