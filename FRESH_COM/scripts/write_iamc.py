@@ -19,14 +19,14 @@ def write_IAMC(output_df, model, scenario, region, variable, unit, time, values)
                   'variable': variable,
                   'unit': unit,
                   'time': time,
-                  'value': values})
-    output_df = output_df.append(_df)
+                  'value': [values]})
+    output_df = pd.concat([output_df, _df])
     return output_df
 
 # Example of code
 output_df = pd.DataFrame()
 model = 'FRESH:COM v2.0'
-scenario = 'openENTRANCE_CS2_Societal_Commitment'
+scenario = 'openENTRANCE CS2 Scenario with community'
 region = 'Austria'
 variable = 'Final Energy|Residential and Commercial|Electricity'
 unit = 'MWh'
