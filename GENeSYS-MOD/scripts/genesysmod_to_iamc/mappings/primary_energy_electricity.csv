@@ -1,0 +1,22 @@
+tech,var
+P_Biomass,Primary Energy|Biomass|Electricity|w/o CCS
+P_Coal_Hardcoal,Primary Energy|Coal|Electricity|w/o CCS
+P_Coal_Lignite,Primary Energy|Coal|Electricity|w/o CCS
+P_Oil,Primary Energy|Oil|Electricity|w/o CCS
+RES_Ocean,Primary Energy|Ocean
+CHP_Gas_CCGT_Natural,Primary Energy|Gas|Electricity|w/o CCS
+CHP_Gas_CCGT_Natural_CCS,Primary Energy|Gas|Electricity|w/ CCS
+CHP_Biomass_Solid,Primary Energy|Biomass|Electricity|w/o CCS
+CHP_Biomass_Solid_CCS,Primary Energy|Biomass|Electricity|w/ CCS
+CHP_Coal_Hardcoal,Primary Energy|Coal|Electricity|w/o CCS
+CHP_Coal_Hardcoal_CCS,Primary Energy|Coal|Electricity|w/ CCS
+CHP_Coal_Lignite,Primary Energy|Coal|Electricity|w/o CCS
+CHP_Coal_Lignite_CCS,Primary Energy|Coal|Electricity|w/ CCS
+P_Coal_Hardcoal_CCS,Primary Energy|Coal|Electricity|w/ CCS
+P_Coal_Lignite_CCS,Primary Energy|Coal|Electricity|w/ CCS
+P_Biomass_CCS,Primary Energy|Biomass|Electricity|w/ CCS
+CHP_Oil,Primary Energy|Oil|Electricity|w/o CCS
+P_Gas_CCGT,Primary Energy|Gas|Electricity|w/o CCS
+P_Gas_Engines,Primary Energy|Gas|Electricity|w/o CCS
+P_Gas_OCGT,Primary Energy|Gas|Electricity|w/o CCS
+P_Gas_CCS,Primary Energy|Gas|Electricity|w/ CCS

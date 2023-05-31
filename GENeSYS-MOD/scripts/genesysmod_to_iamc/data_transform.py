@@ -2,6 +2,7 @@ import genesysmod_to_iamc.data_reader as dr
 import genesysmod_to_iamc.data_wrapper as dw
 import pandas as pd
 import logging
+import itertools
 
 from genesysmod_to_iamc._statics import *
 
@@ -46,15 +47,18 @@ def generate_primary_energy_values(data_wrapper: dw.DataWrapper):
     logging.info('Executing: generate_primary_energy_values')
     map_primary_fuels = dr.loadmap_primary_energy_fuels()
     map_nonbio_renewables = dr.loadmap_non_bio_renewables()
+    map_electricity = dr.loadmap_from_csv('primary_energy_electricity')
 
     prod_values = data_wrapper.production_values.copy()
     use_values = data_wrapper.usage_values.copy()
+
 
     traditional_energy = use_values[use_values['fuel'].isin(map_primary_fuels.keys())].copy()
     traditional_energy = traditional_energy[traditional_energy['sector'] != 'Storage']
     traditional_energy['value'] = abs(traditional_energy['value'])
     for entry in map_primary_fuels:
         traditional_energy = traditional_energy.replace({'fuel': entry}, map_primary_fuels[entry])
+
 
     non_res_biomass = prod_values[prod_values['technology'].isin(map_nonbio_renewables.keys())].copy()
     for entry in map_nonbio_renewables:
@@ -64,12 +68,21 @@ def generate_primary_energy_values(data_wrapper: dw.DataWrapper):
 
     non_res_biomass['fuel'] = non_res_biomass['technology']
 
-    nuclear = prod_values[prod_values['technology'] == 'P_Nuclear'].copy()
+    nuclear = use_values[use_values['technology'] == 'P_Nuclear'].copy()
+
     nuclear['fuel'] = 'Primary Energy|Nuclear'
 
-    frames = [traditional_energy, non_res_biomass, nuclear]
+    electricity = use_values[use_values['technology'].isin(map_electricity.keys())].copy()
+    for entry in map_electricity:
+        electricity = electricity.replace({'technology': entry}, map_electricity[entry])
+    electricity = electricity[electricity['mode'] == '1']
+
+    electricity['fuel'] = electricity['technology']
+
+    frames = [traditional_energy, non_res_biomass, nuclear, electricity]
 
     primary_energy = pd.concat(frames)
+
 
     primary_energy['model'] = DEF_MODEL_AND_VERSION
     primary_energy['unit'] = 'EJ/yr'
@@ -80,6 +93,32 @@ def generate_primary_energy_values(data_wrapper: dw.DataWrapper):
     primary_energy = _set_timeslices(primary_energy, data_wrapper)
     primary_energy = _transform_columns(primary_energy, 'fuel')
 
+    # add aggregated region EU27
+    energy_eu27 = primary_energy[primary_energy['Region'].isin(DEF_EU27)]
+    energy_eu27 = energy_eu27.groupby(['Model', 'Scenario', 'Variable', 'Unit', 'Subannual', 'Year']).sum().reset_index()
+    energy_eu27['Region'] = 'EU27 (excl. Malta & Cyprus)'
+
+    primary_energy = pd.concat([primary_energy, energy_eu27])
+
+    ### adding variables with value 0
+    # import and filter for primary energy variables
+    df_zero_var = dr.loaddf_from_csv('zero_var')
+    df_final_zero = df_zero_var[df_zero_var['Type'] == 'Primary Energy']['Variable'].reset_index()
+
+    # create a df of combinations of all years,regions and variables
+    combinations = list(
+        itertools.product(primary_energy['Region'].unique(), primary_energy['Year'].unique(), df_final_zero['Variable']))
+    df_final_zero = pd.DataFrame(combinations, columns=['Region', 'Year', 'Variable'])
+
+    # drop variables starting with #
+    df_final_zero = df_final_zero[~df_final_zero['Variable'].str.startswith('#')]
+
+    # safe general values of other columns and assign them to the new variables, setting value 0
+    model, scenario, unit = primary_energy.iloc[1, [0, 1, 4]]
+    df_final_zero[['Model', 'Scenario', 'Unit', 'Subannual', 'Value']] = model, scenario, unit, 'Year', 0
+
+    primary_energy = pd.concat([primary_energy, df_final_zero])
+
     data_wrapper.transformed_data['primary_energy'] = primary_energy
 
     return primary_energy
@@ -88,11 +127,13 @@ def generate_primary_energy_values(data_wrapper: dw.DataWrapper):
 def generate_final_energy_values(data_wrapper: dw.DataWrapper):
     logging.info('Executing: generate_final_energy_values')
     use_values = data_wrapper.usage_values.copy()
-
     map_final_sector = dr.loadmap_from_csv('final_energy_sector')
     map_final_fuel = dr.loadmap_from_csv('final_energy_fuel')
 
+
     use_values = use_values[use_values['technology'].isin(map_final_sector.keys())]
+    use_values = use_values[use_values['fuel'].isin(map_final_fuel.keys())]
+
 
     for entry in map_final_sector:
         use_values = use_values.replace({'technology': entry}, map_final_sector[entry])
@@ -102,6 +143,8 @@ def generate_final_energy_values(data_wrapper: dw.DataWrapper):
     use_values['techfuel'] = use_values['technology'] + '|' + use_values['fuel']
     use_values['fuel'] = use_values['techfuel']
 
+
+
     use_electricity_values = data_wrapper.usage_values.copy()
     use_electricity_values = use_electricity_values[use_electricity_values['fuel'] == 'Power']
     use_electricity_values = use_electricity_values[use_electricity_values['technology'] == 'Demand']
@@ -109,7 +152,9 @@ def generate_final_energy_values(data_wrapper: dw.DataWrapper):
 
     use_heat_values = _extract_final_energy_heat(data_wrapper)
 
+
     final_energy = pd.concat([use_values, use_electricity_values, use_heat_values])
+
 
     final_energy['model'] = DEF_MODEL_AND_VERSION
     final_energy['unit'] = 'EJ/yr'
@@ -120,6 +165,34 @@ def generate_final_energy_values(data_wrapper: dw.DataWrapper):
     final_energy = _set_timeslices(final_energy, data_wrapper)
 
     final_energy = _transform_columns(final_energy, 'fuel')
+
+    # add aggregated region EU27
+    energy_eu27 = final_energy[final_energy['Region'].isin(DEF_EU27)]
+    energy_eu27 = energy_eu27.groupby(['Model', 'Scenario', 'Variable', 'Unit', 'Subannual', 'Year']).sum().reset_index()
+    energy_eu27['Region'] = 'EU27 (excl. Malta & Cyprus)'
+
+    final_energy = pd.concat([final_energy, energy_eu27])
+
+    ### adding variables with value 0
+    #import and filter for final energy variables
+    df_zero_var = dr.loaddf_from_csv('zero_var')
+    df_final_zero = df_zero_var[df_zero_var['Type'] == 'Final Energy']['Variable'].reset_index()
+
+    #create a df of combinations of all years,regions and variables
+    combinations = list(itertools.product(final_energy['Region'].unique(), final_energy['Year'].unique(), df_final_zero['Variable']))
+    df_final_zero = pd.DataFrame(combinations, columns=['Region', 'Year', 'Variable'])
+
+    #drop variables starting with #
+    df_final_zero = df_final_zero[~df_final_zero['Variable'].str.startswith('#')]
+
+    #safe general values of other columns and assign them to the new variables, setting value 0
+    model, scenario, unit = final_energy.iloc[1,[0,1,4]]
+    df_final_zero[['Model', 'Scenario', 'Unit', 'Subannual', 'Value']] = model, scenario, unit, 'Year', 0
+
+    final_energy = pd.concat([final_energy, df_final_zero])
+
+    # removing entries that wrongfully get written, even without existing mapping
+    final_energy.drop(final_energy[final_energy['Variable'] == 'Final Energy|Industry|Area_Rooftop_Commercial'].index,inplace=True)
 
     data_wrapper.transformed_data['final_energy'] = final_energy
 
@@ -170,6 +243,13 @@ def generate_capacity_values(data_wrapper: dw.DataWrapper):
         ['model', 'scenario', 'region', 'technology', 'unit', 'subannual', 'year']).sum().reset_index()
     capacity_values.columns = ['Model', 'Scenario', 'Region', 'Variable', 'Unit', 'Subannual', 'Year', 'Value']
 
+    # add aggregated region EU27
+    capacity_eu27 = capacity_values[capacity_values['Region'].isin(DEF_EU27)]
+    capacity_eu27 = capacity_eu27.groupby(['Model', 'Scenario', 'Variable', 'Unit', 'Subannual', 'Year']).sum().reset_index()
+    capacity_eu27['Region'] = 'EU27 (excl. Malta & Cyprus)'
+
+    capacity_values = pd.concat([capacity_values, capacity_eu27])
+
     data_wrapper.transformed_data['capacity'] = capacity_values
 
     return capacity_values
@@ -179,12 +259,13 @@ def generate_transmission_capacity_values(data_wrapper: dw.DataWrapper):
     logging.info('Executing: generate_transmission_capacity_values')
 
     trade_values = data_wrapper.trade_capacity_values.copy()
+    trade_values = trade_values[trade_values['type'] == 'Power Transmissions Capacity']
 
     trade_values['model'] = DEF_MODEL_AND_VERSION
     trade_values['unit'] = 'MW'
     trade_values['value'] = abs(trade_values['value'])*1000
     trade_values['subannual'] = 'Year'
-    trade_values['variable'] = 'Maximum Flow|Electricity|Grid'
+    trade_values['variable'] = 'Network|Electricity|Maximum Flow'
     trade_values['scenario'] = DEF_MAP_FILE_SCENARIOS[data_wrapper.input_file]
 
     trade_values = trade_values.replace({'region_to': 'UK'}, 'GB')
@@ -205,13 +286,14 @@ def generate_transmission_capacity_values(data_wrapper: dw.DataWrapper):
         ['model', 'scenario', 'region', 'variable', 'unit', 'subannual', 'year']).sum().reset_index()
     trade_values.columns = ['Model', 'Scenario', 'Region', 'Variable', 'Unit', 'Subannual', 'Year', 'Value']
 
+
     data_wrapper.transformed_data['transmission'] = trade_values
 
     return trade_values
 
 
 def generate_storage_capacity_values(data_wrapper: dw.DataWrapper):
-    logging.info('Executing: generate_transport_capacity_values')
+    logging.info('Executing: generate_storage_capacity_values')
     map_capacity_technology = dr.loadmap_from_csv('storages')
     map_e2p_ratios = dr.loadmap_from_csv('storages_e2p_ratios')
 
@@ -223,11 +305,11 @@ def generate_storage_capacity_values(data_wrapper: dw.DataWrapper):
     for entry in map_capacity_technology:
 
         capacity_value = capacity_values[capacity_values['technology'] == entry].copy()
-        capacity_value = capacity_value.replace({'technology': entry}, map_capacity_technology[entry])
+        capacity_value = capacity_value.replace({'technology': entry}, 'Maximum Storage' + '|' + map_capacity_technology[entry])
 
-        if map_capacity_technology[entry] == 'Maximum Storage|Electricity|Hydro|Pumped Storage':
-            capacity_value['unit'] = 'MWh'
-            capacity_value['value'] = abs(capacity_value['value']) * map_e2p_ratios[map_capacity_technology[entry]]*1000
+        if map_capacity_technology[entry] == 'Maximum Storage|Electricity|Energy Storage System|Hydro|Pumped Storage':
+            capacity_value['unit'] = 'GWh'
+            capacity_value['value'] = abs(capacity_value['value']) * map_e2p_ratios[map_capacity_technology[entry]]
         else:
             capacity_value['unit'] = 'GWh'
             capacity_value['value'] = abs(capacity_value['value']) * map_e2p_ratios[map_capacity_technology[entry]]
@@ -244,6 +326,13 @@ def generate_storage_capacity_values(data_wrapper: dw.DataWrapper):
     capacity_values = capacity_values.groupby(
         ['model', 'scenario', 'region', 'technology', 'unit', 'subannual', 'year']).sum().reset_index()
     capacity_values.columns = ['Model', 'Scenario', 'Region', 'Variable', 'Unit', 'Subannual', 'Year', 'Value']
+
+    # add aggregated region EU27
+    capacity_eu27 = capacity_values[capacity_values['Region'].isin(DEF_EU27)]
+    capacity_eu27 = capacity_eu27.groupby(['Model', 'Scenario', 'Variable', 'Unit', 'Subannual', 'Year']).sum().reset_index()
+    capacity_eu27['Region'] = 'EU27 (excl. Malta & Cyprus)'
+
+    capacity_values = pd.concat([capacity_values, capacity_eu27])
 
     data_wrapper.transformed_data['capacity_storage'] = capacity_values
 
@@ -276,6 +365,13 @@ def generate_transport_capacity_values(data_wrapper: dw.DataWrapper):
         ['model', 'scenario', 'region', 'technology', 'unit', 'subannual', 'year']).sum().reset_index()
     capacity_values.columns = ['Model', 'Scenario', 'Region', 'Variable', 'Unit', 'Subannual', 'Year', 'Value']
 
+    # add aggregated region EU27
+    capacity_eu27 = capacity_values[capacity_values['Region'].isin(DEF_EU27)]
+    capacity_eu27 = capacity_eu27.groupby(['Model', 'Scenario', 'Variable', 'Unit', 'Subannual', 'Year']).sum().reset_index()
+    capacity_eu27['Region'] = 'EU27 (excl. Malta & Cyprus)'
+
+    capacity_values = pd.concat([capacity_values, capacity_eu27])
+
     data_wrapper.transformed_data['capacity_transport'] = capacity_values
 
     return capacity_values
@@ -300,6 +396,13 @@ def generate_emissions_values(data_wrapper: dw.DataWrapper):
     emission_values = emission_values.groupby(
         ['model', 'scenario', 'region', 'technology', 'unit', 'subannual', 'year']).sum().reset_index()
     emission_values.columns = ['Model', 'Scenario', 'Region', 'Variable', 'Unit', 'Subannual', 'Year', 'Value']
+
+    #add aggregated region EU27
+    emissions_eu27 = emission_values[emission_values['Region'].isin(DEF_EU27)]
+    emissions_eu27 = emissions_eu27.groupby(['Model', 'Scenario', 'Variable', 'Unit', 'Subannual', 'Year']).sum().reset_index()
+    emissions_eu27['Region'] = 'EU27 (excl. Malta & Cyprus)'
+
+    emission_values = pd.concat([emission_values, emissions_eu27])
 
     data_wrapper.transformed_data['emissions'] = emission_values
 
@@ -326,6 +429,13 @@ def generate_additional_emissions_values(data_wrapper: dw.DataWrapper):
         ['model', 'scenario', 'region', 'technology', 'unit', 'subannual', 'year']).sum().reset_index()
     emission_values.columns = ['Model', 'Scenario', 'Region', 'Variable', 'Unit', 'Subannual', 'Year', 'Value']
 
+    # add aggregated region EU27
+    emissions_eu27 = emission_values[emission_values['Region'].isin(DEF_EU27)]
+    emissions_eu27 = emissions_eu27.groupby(['Model', 'Scenario', 'Variable', 'Unit', 'Subannual', 'Year']).sum().reset_index()
+    emissions_eu27['Region'] = 'EU27 (excl. Malta & Cyprus)'
+
+    emission_values = pd.concat([emission_values, emissions_eu27])
+
     data_wrapper.transformed_data['emissions2'] = emission_values
 
     return emission_values
@@ -345,7 +455,7 @@ def generate_secondary_energy(data_wrapper: dw.DataWrapper):
 
     map_secondary_energy_heat = dr.loadmap_from_csv('secondary_energy_heat')
     heat_values = prod_values[prod_values['technology'].isin(map_secondary_energy_heat.keys())].copy()
-    heat_values = heat_values[(heat_values['fuel'] == 'Heat_Low_Residual') |
+    heat_values = heat_values[(heat_values['fuel'] == 'Heat_Low_Residential') |
                               (heat_values['fuel'] == 'Heat_Low_Industrial') |
                               (heat_values['fuel'] == 'Heat_Medium_Industrial') |
                               (heat_values['fuel'] == 'Heat_High_Industrial')]
@@ -384,41 +494,56 @@ def generate_secondary_energy(data_wrapper: dw.DataWrapper):
 
     secondary_energy = _transform_columns(secondary_energy, 'technology')
 
+    # add aggregated region EU27
+    energy_eu27 = secondary_energy[secondary_energy['Region'].isin(DEF_EU27)]
+    energy_eu27 = energy_eu27.groupby(['Model', 'Scenario', 'Variable', 'Unit', 'Subannual', 'Year']).sum().reset_index()
+    energy_eu27['Region'] = 'EU27 (excl. Malta & Cyprus)'
+
+    secondary_energy = pd.concat([secondary_energy, energy_eu27])
+
     data_wrapper.transformed_data['secondary_energy'] = secondary_energy
 
     return secondary_energy
 
 
 def _generate_exogenous_costs_values(data_wrapper: dw.DataWrapper, cost_type: str):
-    logging.info('Executing: generate_capital_costs_values')
-    map_capacity_technology = dr.loadmap_from_csv('capacity_technologies')
+    map_cost_technology = dr.loadmap_from_csv('costs')
 
     cost_values = data_wrapper.cost_values.copy()
     cost_values = cost_values[cost_values['type'] == cost_type]
-    cost_values = cost_values[cost_values['technology'].isin(map_capacity_technology.keys())]
+    cost_values = cost_values[cost_values['technology'].isin(map_cost_technology.keys())]
 
-    for entry in map_capacity_technology:
+    for entry in map_cost_technology:
         cost_values = cost_values.replace({'technology': entry},
-                                          cost_type[:-1] + '|' + map_capacity_technology[entry])
+                                          cost_type[:-1] + '|' + map_cost_technology[entry])
+
 
     cost_values['model'] = DEF_MODEL_AND_VERSION
 
     convert_eur_to2010_dollar = 1 / 1.08 * 1.17
 
     if cost_type == "Capital Costs":
-        cost_values['unit'] = 'US$2010/kW'
+        cost_values['unit'] = 'USD_2010/kW'
         cost_values['value'] = abs(cost_values['value']) * convert_eur_to2010_dollar
+
 
     elif cost_type == "Fixed Costs":
-        cost_values['unit'] = 'US$2010/kW/yr'
+        cost_values['unit'] = 'USD_2010/kW/yr'
         cost_values['value'] = abs(cost_values['value']) * convert_eur_to2010_dollar
 
+
     elif cost_type == "Variable Costs":
-        cost_values['unit'] = 'US$2010/MWh'
-        cost_values['value'] = abs(cost_values['value']) * convert_eur_to2010_dollar
+        for idx in cost_values.index:
+            if 'Variable Cost|Heat' in cost_values.loc[idx,'technology']:
+                cost_values.loc[idx,'unit'] = 'USD_2010/MWh'
+                cost_values.loc[idx,'value'] *= convert_eur_to2010_dollar*3.6
+            else:
+                cost_values.loc[idx,'unit'] = 'EUR/MWh' #USD_2010/MWh
+                cost_values.loc[idx,'value'] = abs(cost_values.loc[idx,'value'])*3.6
 
     else:
         cost_values['unit'] = 'n/a'
+
 
     cost_values['scenario'] = DEF_MAP_FILE_SCENARIOS[data_wrapper.input_file]
     cost_values['subannual'] = 'Year'
@@ -427,13 +552,80 @@ def _generate_exogenous_costs_values(data_wrapper: dw.DataWrapper, cost_type: st
         ['model', 'scenario', 'region', 'technology', 'unit', 'subannual', 'year']).mean().reset_index()
     cost_values.columns = ['Model', 'Scenario', 'Region', 'Variable', 'Unit', 'Subannual', 'Year', 'Value']
 
+    cost_eu27 = cost_values[cost_values['Region'] == 'DE'].copy()
+    cost_eu27['Region'] = 'EU27 (excl. Malta & Cyprus)'
+
+    cost_values = pd.concat([cost_values, cost_eu27])
+
     data_wrapper.transformed_data['Ex ' + str(cost_type)] = cost_values
 
     return cost_values
 
 
+# so far only LCOE
+def _generate_detailed_costs_values(data_wrapper: dw.DataWrapper, cost_type:str):
+    map_cost_technology = dr.loadmap_from_csv('costs')
+    map_storage_technology = dr.loadmap_from_csv('storages_lcoe')
+
+    cost_values = data_wrapper.detailed_cost_values.copy()
+    cost_values = cost_values[cost_values['type'] == cost_type]
+    cost_values = cost_values[cost_values['technology'].isin(map_cost_technology.keys())]
+
+
+    for entry in map_cost_technology:
+        if cost_type == "Levelized Costs [Capex]":
+            cost_values = cost_values.replace({'technology': entry},
+                                          "Levelized Cost|Capex" '|' + map_cost_technology[entry])
+        elif cost_type == "Levelized Costs [Emissions]":
+            cost_values = cost_values.replace({'technology': entry},
+                                              "Levelized Cost|Emissions" '|' + map_cost_technology[entry])
+        elif cost_type == "Levelized Costs [Generation]":
+            cost_values = cost_values.replace({'technology': entry},
+                                              "Levelized Cost|Generation" '|' + map_cost_technology[entry])
+        elif cost_type == "Levelized Costs [Total w/o Emissions]":
+            cost_values = cost_values.replace({'technology': entry},
+                                              "Levelized Cost|Total (excl. Emissions)" '|' + map_cost_technology[entry])
+        elif cost_type == "Levelized Costs [Total]":
+            cost_values = cost_values.replace({'technology': entry},
+                                              "Levelized Cost|Total (incl. Emissions)" '|' + map_cost_technology[entry])
+
+
+    #add LCOE for storages
+    if cost_type == "Levelized Costs [Total]":
+        storage_values = data_wrapper.detailed_cost_values.copy()
+        storage_values = storage_values[storage_values['type'] == cost_type]
+        storage_values = storage_values[storage_values['technology'].isin(map_storage_technology.keys())]
+
+        for entry in map_storage_technology:
+            storage_values = storage_values.replace({'technology': entry},
+                                              'Levelized Cost' + '|' + map_storage_technology[entry])
+
+        cost_values = pd.concat([cost_values, storage_values], ignore_index=True)
+
+
+
+
+    cost_values['model'] = DEF_MODEL_AND_VERSION
+    cost_values['unit'] = 'MEUR_2020/PJ'
+
+    cost_values['scenario'] = DEF_MAP_FILE_SCENARIOS[data_wrapper.input_file]
+    cost_values['subannual'] = 'Year'
+
+    cost_values = cost_values.groupby(
+        ['model', 'scenario', 'region', 'technology', 'unit', 'subannual', 'year']).mean().reset_index()
+    cost_values.columns = ['Model', 'Scenario', 'Region', 'Variable', 'Unit', 'Subannual', 'Year', 'Value']
+
+    cost_eu27 = cost_values[cost_values['Region'] == 'DE'].copy()
+    cost_eu27['Region'] = 'EU27 (excl. Malta & Cyprus)'
+
+    cost_values = pd.concat([cost_values, cost_eu27])
+
+    data_wrapper.transformed_data[str(cost_type)] = cost_values
+
+    return cost_values
+
+
 def _generate_exogenous_transport_costs_values(data_wrapper: dw.DataWrapper, cost_type: str):
-    logging.info('Executing: generate_transport_capital_costs_values')
     map_capacity_technology = dr.loadmap_from_csv('capacity_transport_technologies')
     map_units_technology = dr.loadmap_from_csv('units_transport_technologies')
 
@@ -452,17 +644,18 @@ def _generate_exogenous_transport_costs_values(data_wrapper: dw.DataWrapper, cos
         cost_values.loc[(cost_values['technology'] == cost_type[:-1] + '|' + entry), 'unit'] = map_units_technology[entry][1:-3]
 
     if cost_type == "Capital Costs":
-        cost_values['unit'] = 'US$2010/' + cost_values['unit']
+        cost_values['unit'] = 'USD_2010/' + cost_values['unit']
         cost_values['value'] = abs(cost_values['value']) * convert_eur_to2010_dollar
 
     elif cost_type == "Fixed Costs":
-        cost_values['unit'] = 'US$2010/' + cost_values['unit'] + '/yr'
+        cost_values['unit'] = 'USD_2010/' + cost_values['unit'] + '/yr'
         cost_values['value'] = abs(cost_values['value']) * convert_eur_to2010_dollar
 
     else:
         cost_values['unit'] = 'n/a'
 
     cost_values['model'] = DEF_MODEL_AND_VERSION
+
     for entry in map_units_technology:
         cost_values = cost_values.replace({'unit': entry}, map_units_technology[entry])
 
@@ -473,6 +666,11 @@ def _generate_exogenous_transport_costs_values(data_wrapper: dw.DataWrapper, cos
     cost_values = cost_values.groupby(
         ['model', 'scenario', 'region', 'technology', 'unit', 'subannual', 'year']).mean().reset_index()
     cost_values.columns = ['Model', 'Scenario', 'Region', 'Variable', 'Unit', 'Subannual', 'Year', 'Value']
+
+    cost_eu27 = cost_values[cost_values['Region'] == 'DE'].copy()
+    cost_eu27['Region'] = 'EU27 (excl. Malta & Cyprus)'
+
+    cost_values = pd.concat([cost_values, cost_eu27])
 
     data_wrapper.transformed_data['ex_transport ' + str(cost_type)] = cost_values
 
@@ -487,7 +685,7 @@ def generate_co2_prices(data_wrapper: dw.DataWrapper):
     cost_values = cost_values[cost_values['technology'] == 'Carbon']
 
     cost_values['technology'] = 'Price|Carbon'
-    cost_values['unit'] = 'EUR/t CO2'
+    cost_values['unit'] = 'EUR_2020/t CO2'
     cost_values['model'] = DEF_MODEL_AND_VERSION
     cost_values['value'] = abs(cost_values['value'])
     cost_values['subannual'] = 'Year'
@@ -497,19 +695,41 @@ def generate_co2_prices(data_wrapper: dw.DataWrapper):
         ['model', 'scenario', 'region', 'technology', 'unit', 'subannual', 'year']).mean().reset_index()
     cost_values.columns = ['Model', 'Scenario', 'Region', 'Variable', 'Unit', 'Subannual', 'Year', 'Value']
 
+    cost_eu27 = cost_values[cost_values['Region'] == 'DE'].copy()
+    cost_eu27['Region'] = 'EU27 (excl. Malta & Cyprus)'
+
+    cost_values = pd.concat([cost_values, cost_eu27])
+
     data_wrapper.transformed_data['carbon_price'] = cost_values
 
     return cost_values
 
 
 def generate_exogenous_costs(data_wrapper: dw.DataWrapper):
+    logging.info('Executing: generate_capital_costs_values')
     _generate_exogenous_costs_values(data_wrapper, "Capital Costs")
+
+    logging.info('Executing: generate_fixed_costs_values')
+    _generate_exogenous_costs_values(data_wrapper, "Fixed Costs")
+
+    logging.info('Executing: generate_variable_costs_values')
+    _generate_exogenous_costs_values(data_wrapper, "Variable Costs")
+
+    logging.info('Executing: generate_transport_capital_costs_values')
     _generate_exogenous_transport_costs_values(data_wrapper, "Capital Costs")
 
-    _generate_exogenous_costs_values(data_wrapper, "Fixed Costs")
+    logging.info('Executing: generate_transport_fixed_costs_values')
     _generate_exogenous_transport_costs_values(data_wrapper, "Fixed Costs")
 
-    _generate_exogenous_costs_values(data_wrapper, "Variable Costs")
+
+def generate_detailed_costs(data_wrapper: dw.DataWrapper):
+    logging.info('Executing: generate_levelized_costs_values')
+    _generate_detailed_costs_values(data_wrapper, "Levelized Costs [Capex]")
+    _generate_detailed_costs_values(data_wrapper, "Levelized Costs [Emissions]")
+    _generate_detailed_costs_values(data_wrapper, "Levelized Costs [Generation]")
+    _generate_detailed_costs_values(data_wrapper, "Levelized Costs [Total w/o Emissions]")
+    _generate_detailed_costs_values(data_wrapper, "Levelized Costs [Total]")
+
 
 
 def generate_load_factors(data_wrapper: dw.DataWrapper):
