@@ -25,14 +25,14 @@ def _set_timeslices(frame: pd.DataFrame, data_wrapper: dw.DataWrapper):
 def _transform_columns(frame: pd.DataFrame, column='fuel'):
     # group by relevant values and take the sum
     _frame = frame.groupby(
-        ['model', 'scenario', 'region', column, 'unit', 'subannual', 'year']).sum().reset_index()
+        ['model', 'scenario', 'region', column, 'unit', 'subannual', 'year'])['value'].sum().reset_index()
 
     # agregate to yearly values
     _frame2 = frame.groupby(
-        ['model', 'scenario', 'region', column, 'unit', 'year']).sum().reset_index()
+        ['model', 'scenario', 'region', column, 'unit', 'year'])['value'].sum().reset_index()
     _frame2['subannual'] = 'Year'
     _frame2 = _frame2.groupby(
-        ['model', 'scenario', 'region', column, 'unit', 'subannual', 'year']).sum().reset_index()
+        ['model', 'scenario', 'region', column, 'unit', 'subannual', 'year'])['value'].sum().reset_index()
 
     # reassign column names
     _frame2.columns = ['Model', 'Scenario', 'Region', 'Variable', 'Unit', 'Subannual', 'Year', 'Value']
@@ -95,7 +95,7 @@ def generate_primary_energy_values(data_wrapper: dw.DataWrapper):
 
     # add aggregated region EU27
     energy_eu27 = primary_energy[primary_energy['Region'].isin(DEF_EU27)]
-    energy_eu27 = energy_eu27.groupby(['Model', 'Scenario', 'Variable', 'Unit', 'Subannual', 'Year']).sum().reset_index()
+    energy_eu27 = energy_eu27.groupby(['Model', 'Scenario', 'Variable', 'Unit', 'Subannual', 'Year'])['Value'].sum().reset_index()
     energy_eu27['Region'] = 'EU27 (excl. Malta & Cyprus)'
 
     primary_energy = pd.concat([primary_energy, energy_eu27])
@@ -168,7 +168,7 @@ def generate_final_energy_values(data_wrapper: dw.DataWrapper):
 
     # add aggregated region EU27
     energy_eu27 = final_energy[final_energy['Region'].isin(DEF_EU27)]
-    energy_eu27 = energy_eu27.groupby(['Model', 'Scenario', 'Variable', 'Unit', 'Subannual', 'Year']).sum().reset_index()
+    energy_eu27 = energy_eu27.groupby(['Model', 'Scenario', 'Variable', 'Unit', 'Subannual', 'Year'])['Value'].sum().reset_index()
     energy_eu27['Region'] = 'EU27 (excl. Malta & Cyprus)'
 
     final_energy = pd.concat([final_energy, energy_eu27])
@@ -240,12 +240,12 @@ def generate_capacity_values(data_wrapper: dw.DataWrapper):
     capacity_values = _set_scenarios(capacity_values)
 
     capacity_values = capacity_values.groupby(
-        ['model', 'scenario', 'region', 'technology', 'unit', 'subannual', 'year']).sum().reset_index()
+        ['model', 'scenario', 'region', 'technology', 'unit', 'subannual', 'year'])['value'].sum().reset_index()
     capacity_values.columns = ['Model', 'Scenario', 'Region', 'Variable', 'Unit', 'Subannual', 'Year', 'Value']
 
     # add aggregated region EU27
     capacity_eu27 = capacity_values[capacity_values['Region'].isin(DEF_EU27)]
-    capacity_eu27 = capacity_eu27.groupby(['Model', 'Scenario', 'Variable', 'Unit', 'Subannual', 'Year']).sum().reset_index()
+    capacity_eu27 = capacity_eu27.groupby(['Model', 'Scenario', 'Variable', 'Unit', 'Subannual', 'Year'])['Value'].sum().reset_index()
     capacity_eu27['Region'] = 'EU27 (excl. Malta & Cyprus)'
 
     capacity_values = pd.concat([capacity_values, capacity_eu27])
@@ -283,7 +283,7 @@ def generate_transmission_capacity_values(data_wrapper: dw.DataWrapper):
     trade_values['region'] = trade_values['region_from'] + ">" + trade_values['region_to']
 
     trade_values = trade_values.groupby(
-        ['model', 'scenario', 'region', 'variable', 'unit', 'subannual', 'year']).sum().reset_index()
+        ['model', 'scenario', 'region', 'variable', 'unit', 'subannual', 'year'])['value'].sum().reset_index()
     trade_values.columns = ['Model', 'Scenario', 'Region', 'Variable', 'Unit', 'Subannual', 'Year', 'Value']
 
 
@@ -324,12 +324,12 @@ def generate_storage_capacity_values(data_wrapper: dw.DataWrapper):
     capacity_values = _set_scenarios(capacity_values)
 
     capacity_values = capacity_values.groupby(
-        ['model', 'scenario', 'region', 'technology', 'unit', 'subannual', 'year']).sum().reset_index()
+        ['model', 'scenario', 'region', 'technology', 'unit', 'subannual', 'year'])['value'].sum().reset_index()
     capacity_values.columns = ['Model', 'Scenario', 'Region', 'Variable', 'Unit', 'Subannual', 'Year', 'Value']
 
     # add aggregated region EU27
     capacity_eu27 = capacity_values[capacity_values['Region'].isin(DEF_EU27)]
-    capacity_eu27 = capacity_eu27.groupby(['Model', 'Scenario', 'Variable', 'Unit', 'Subannual', 'Year']).sum().reset_index()
+    capacity_eu27 = capacity_eu27.groupby(['Model', 'Scenario', 'Variable', 'Unit', 'Subannual', 'Year'])['Value'].sum().reset_index()
     capacity_eu27['Region'] = 'EU27 (excl. Malta & Cyprus)'
 
     capacity_values = pd.concat([capacity_values, capacity_eu27])
@@ -362,12 +362,12 @@ def generate_transport_capacity_values(data_wrapper: dw.DataWrapper):
     capacity_values = _set_scenarios(capacity_values)
 
     capacity_values = capacity_values.groupby(
-        ['model', 'scenario', 'region', 'technology', 'unit', 'subannual', 'year']).sum().reset_index()
+        ['model', 'scenario', 'region', 'technology', 'unit', 'subannual', 'year'])['value'].sum().reset_index()
     capacity_values.columns = ['Model', 'Scenario', 'Region', 'Variable', 'Unit', 'Subannual', 'Year', 'Value']
 
     # add aggregated region EU27
     capacity_eu27 = capacity_values[capacity_values['Region'].isin(DEF_EU27)]
-    capacity_eu27 = capacity_eu27.groupby(['Model', 'Scenario', 'Variable', 'Unit', 'Subannual', 'Year']).sum().reset_index()
+    capacity_eu27 = capacity_eu27.groupby(['Model', 'Scenario', 'Variable', 'Unit', 'Subannual', 'Year'])['Value'].sum().reset_index()
     capacity_eu27['Region'] = 'EU27 (excl. Malta & Cyprus)'
 
     capacity_values = pd.concat([capacity_values, capacity_eu27])
@@ -394,12 +394,12 @@ def generate_emissions_values(data_wrapper: dw.DataWrapper):
     emission_values = _set_scenarios(emission_values)
 
     emission_values = emission_values.groupby(
-        ['model', 'scenario', 'region', 'technology', 'unit', 'subannual', 'year']).sum().reset_index()
+        ['model', 'scenario', 'region', 'technology', 'unit', 'subannual', 'year'])['value'].sum().reset_index()
     emission_values.columns = ['Model', 'Scenario', 'Region', 'Variable', 'Unit', 'Subannual', 'Year', 'Value']
 
     #add aggregated region EU27
     emissions_eu27 = emission_values[emission_values['Region'].isin(DEF_EU27)]
-    emissions_eu27 = emissions_eu27.groupby(['Model', 'Scenario', 'Variable', 'Unit', 'Subannual', 'Year']).sum().reset_index()
+    emissions_eu27 = emissions_eu27.groupby(['Model', 'Scenario', 'Variable', 'Unit', 'Subannual', 'Year'])['Value'].sum().reset_index()
     emissions_eu27['Region'] = 'EU27 (excl. Malta & Cyprus)'
 
     emission_values = pd.concat([emission_values, emissions_eu27])
@@ -426,12 +426,12 @@ def generate_additional_emissions_values(data_wrapper: dw.DataWrapper):
     emission_values = _set_scenarios(emission_values)
 
     emission_values = emission_values.groupby(
-        ['model', 'scenario', 'region', 'technology', 'unit', 'subannual', 'year']).sum().reset_index()
+        ['model', 'scenario', 'region', 'technology', 'unit', 'subannual', 'year'])['value'].sum().reset_index()
     emission_values.columns = ['Model', 'Scenario', 'Region', 'Variable', 'Unit', 'Subannual', 'Year', 'Value']
 
     # add aggregated region EU27
     emissions_eu27 = emission_values[emission_values['Region'].isin(DEF_EU27)]
-    emissions_eu27 = emissions_eu27.groupby(['Model', 'Scenario', 'Variable', 'Unit', 'Subannual', 'Year']).sum().reset_index()
+    emissions_eu27 = emissions_eu27.groupby(['Model', 'Scenario', 'Variable', 'Unit', 'Subannual', 'Year'])['Value'].sum().reset_index()
     emissions_eu27['Region'] = 'EU27 (excl. Malta & Cyprus)'
 
     emission_values = pd.concat([emission_values, emissions_eu27])
@@ -496,7 +496,7 @@ def generate_secondary_energy(data_wrapper: dw.DataWrapper):
 
     # add aggregated region EU27
     energy_eu27 = secondary_energy[secondary_energy['Region'].isin(DEF_EU27)]
-    energy_eu27 = energy_eu27.groupby(['Model', 'Scenario', 'Variable', 'Unit', 'Subannual', 'Year']).sum().reset_index()
+    energy_eu27 = energy_eu27.groupby(['Model', 'Scenario', 'Variable', 'Unit', 'Subannual', 'Year'])['Value'].sum().reset_index()
     energy_eu27['Region'] = 'EU27 (excl. Malta & Cyprus)'
 
     secondary_energy = pd.concat([secondary_energy, energy_eu27])
@@ -549,7 +549,7 @@ def _generate_exogenous_costs_values(data_wrapper: dw.DataWrapper, cost_type: st
     cost_values['subannual'] = 'Year'
 
     cost_values = cost_values.groupby(
-        ['model', 'scenario', 'region', 'technology', 'unit', 'subannual', 'year']).mean().reset_index()
+        ['model', 'scenario', 'region', 'technology', 'unit', 'subannual', 'year'])['value'].mean().reset_index()
     cost_values.columns = ['Model', 'Scenario', 'Region', 'Variable', 'Unit', 'Subannual', 'Year', 'Value']
 
     cost_eu27 = cost_values[cost_values['Region'] == 'DE'].copy()
@@ -612,7 +612,7 @@ def _generate_detailed_costs_values(data_wrapper: dw.DataWrapper, cost_type:str)
     cost_values['subannual'] = 'Year'
 
     cost_values = cost_values.groupby(
-        ['model', 'scenario', 'region', 'technology', 'unit', 'subannual', 'year']).mean().reset_index()
+        ['model', 'scenario', 'region', 'technology', 'unit', 'subannual', 'year'])['value'].mean().reset_index()
     cost_values.columns = ['Model', 'Scenario', 'Region', 'Variable', 'Unit', 'Subannual', 'Year', 'Value']
 
     cost_eu27 = cost_values[cost_values['Region'] == 'DE'].copy()
@@ -664,7 +664,7 @@ def _generate_exogenous_transport_costs_values(data_wrapper: dw.DataWrapper, cos
     cost_values['scenario'] = DEF_MAP_FILE_SCENARIOS[data_wrapper.input_file]
 
     cost_values = cost_values.groupby(
-        ['model', 'scenario', 'region', 'technology', 'unit', 'subannual', 'year']).mean().reset_index()
+        ['model', 'scenario', 'region', 'technology', 'unit', 'subannual', 'year'])['value'].mean().reset_index()
     cost_values.columns = ['Model', 'Scenario', 'Region', 'Variable', 'Unit', 'Subannual', 'Year', 'Value']
 
     cost_eu27 = cost_values[cost_values['Region'] == 'DE'].copy()
@@ -692,7 +692,7 @@ def generate_co2_prices(data_wrapper: dw.DataWrapper):
     cost_values['scenario'] = DEF_MAP_FILE_SCENARIOS[data_wrapper.input_file]
 
     cost_values = cost_values.groupby(
-        ['model', 'scenario', 'region', 'technology', 'unit', 'subannual', 'year']).mean().reset_index()
+        ['model', 'scenario', 'region', 'technology', 'unit', 'subannual', 'year'])['value'].mean().reset_index()
     cost_values.columns = ['Model', 'Scenario', 'Region', 'Variable', 'Unit', 'Subannual', 'Year', 'Value']
 
     cost_eu27 = cost_values[cost_values['Region'] == 'DE'].copy()
@@ -769,7 +769,7 @@ def _generate_load_factors(data_wrapper: dw.DataWrapper, csv_file: str, nomencla
 
     dataframe = pd.concat(frames)
     dataframe = dataframe.groupby(
-        ['model', 'scenario', 'region', 'technology', 'unit', 'subannual', 'year']).mean().reset_index()
+        ['model', 'scenario', 'region', 'technology', 'unit', 'subannual', 'year'])['value'].mean().reset_index()
     dataframe.columns = ['Model', 'Scenario', 'Region', 'Variable', 'Unit', 'Subannual', 'Year', 'Value']
 
     dataframe = dataframe.replace({'Region': 'UK'}, 'GB')
