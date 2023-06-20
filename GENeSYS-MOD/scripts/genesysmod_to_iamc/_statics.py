@@ -1,7 +1,7 @@
 from pathlib import Path
 
 # add your GAMS directory name here
-DEF_GAMS_DIR = "C:/GAMS/41"
+DEF_GAMS_DIR = "C:/GAMS/42"
 
 DEF_MAPPINGS_PATH = Path(__file__).parent / 'mappings'
 DEF_INPUT_PATH = Path(__file__).parent / 'input'

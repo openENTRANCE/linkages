@@ -26,7 +26,7 @@ This python module uses the following external packages:
  - /genesysmod_to_iamc/out/ : Folder with generated csv files in openEntrance format
  - /genesysmod_to_iamc/definitions : Folder with the definitions from the openENTRANCE nomenclature repository (see info below) 
  
-**Hint:** You need to make sure to download the most current version of the definitions from https://github.com/openENTRANCE/openentrance and paste the folder "definitions" in the local folder. A snapshot version of the definitions is provided, but will most likely not be up to date and lead to errors in the scenario explorer validation.
+**Hint:** You need to make sure to download the most current version of the definitions from https://github.com/openENTRANCE/openentrance and paste the folder "definitions" in the local folder. A proven working version of the definitions can be found at commit e16defbd61ad865eb98c2fc718122f10b4c7341e, available for download here: https://github.com/openENTRANCE/openentrance/commit/e16defbd61ad865eb98c2fc718122f10b4c7341e.
 
  The folder _mappings_ contains the mappings and aggregations of GENeSYS-MOD technologies, fuels, and variables to the openENTRANCE nomenclature. Most of the mappings represent dictionaries (key-value pairs) and will be read in automatically. Hence, these mappings can be changed for most cases to be adjusted to changes in the nomenclature or bugs.
  
