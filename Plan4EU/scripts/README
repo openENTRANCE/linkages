@@ -1,1 +1,14 @@
+This directory contains the scripts for linkage of plan4EU to the Open ENTRANCE
 
+INPUT: creation of a plan4res input dataset (plan4res format) from open ENTRANCE scenarios data:
+      - script CreateInputPlan4res.py
+      - configuration files:
+          - SettingsCreateInputPlan4res.yaml
+          - VariablesDictionnary.yaml 
+          - DictTimeSeries.yaml
+
+OUTPUT: post-treatments of plan4res outputs, creation of graphs, of a latex report and conversion of outputs to Open ENTRANCE format:
+      - script PostTreatPlan4res.py
+      - configuration files:
+          - settingsPostTreatPlan4res.yaml
+          - SettingsCreateInputPlan4res.yaml
