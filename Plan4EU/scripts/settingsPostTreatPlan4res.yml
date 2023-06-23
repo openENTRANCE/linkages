@@ -1,0 +1,297 @@
+# start and end date of the full plan4res results
+p4r_start: '2050-07-02T00:00+01:00'
+p4r_end: '2051-12-28T23:00+01:00'
+
+# start and end date for plotting results
+plot_start: '2050-07-02T00:00+01:00'
+plot_end: '2051-06-30T23:00+01:00'
+
+# directories
+# for reading results of plan4EU : 
+#dirScen=directory of the deterministic scenario to analyse in details , optional, if not present the index of scenario is used to
+# search for the scenario results in the stochastic results drectory
+variants: ['CC','DD','CD','DC','DDTargetCC'] # list of sensitivities to be post treated
+option: ['WITH_electricvehicle','WITHOUT_electricvehicle']  # options WITH/WITHOUT for all variants
+# option: ['']  if not options exist for all different variants
+dir: '\\mypathway\\mydirectory\\' # repository where all results are in subdirectories mydirectory/variant/  or mydirectory/variant-option/
+dirL: '\\mypathway/mydirectory/' # same repository in latex format
+
+
+# variables for defining which treatments  will be done
+map: no   # if yes: maps will be created ; only possible if geopandas is available
+geopandas: no # no if geopandas is not available; in that case , maps will be skiped
+
+# treatments of installed capacity
+InstalledCapacity:
+    read: no  # read data and create output files in dir/OUT
+    draw: no  # read output files from dir/OUT and creates hraphs in dir/IMG
+    latex: no # read output files in dir/OUT and graphs in dir/IMG and create a report in dir/Latex
+    iamc: no  # read output files and convert them to open entrance format in dir/IAMC
+    datagroups: ['scenario']  # list of datagroups (see settingsCreateplan4res.yaml) to use to retrieve isntalled capacities
+
+# treatment of results for deterministic scenario
+TreatScenario: no # post-treat results of 1 scenario
+LatexScenario: no # only if TreatScenario=yes, create chapter in latex report
+IamcScenario: no # only in TreatScenario=yes, create outputs in openentrance format
+NumScenario: 3 # index of scenario to be analised in details
+
+# treatments of stochastic results
+TreatStochastic: yes  # yes: performs treatments, no: don't
+stochastic:
+    nbscen: 37  # number of scenarios
+    firstscen: 0  # index of first scenario  (used for numbering the output files)
+    Volume: 
+        read: no  # reads volume outputs and create volume files to be used by 'draw' , 'latex' and 'iamc'
+        draw: no  # create graphs
+        latex: no  # write latex chapter
+        iamc: no  # convert outputs to openentrance format
+        Dir: 'Volume'  # outputs of plan4res for Volumes are in dir/variant-option/Volume/  => files VolumeOUTi.csv
+    Flows: 
+        read: no # reads flows outputs and create volume files to be used by 'draw' , 'latex' and 'iamc'
+        draw: no
+        latex: no
+        iamc: yes
+        Dir: 'Flows'
+    Power:
+        #treat: ['Nuclear','PV']  contains a subset of technologies to be trated , optionnal
+        read: no # reads volume outputs and create volume files to be used by 'draw' , 'latex', 'cmputecost' and 'iamc'
+        computecost: no  # compute variable costs
+        draw: no
+        latex: no
+        iamc: yes
+        Dir: 'ActivePower'
+    MarginalCost: 
+        read: no # reads volume outputs and create volume files to be used by 'draw' , 'latex' and 'iamc'
+        draw: no
+        latex: no
+        iamc: no
+        update: no
+        Dir: 'MarginalCosts'
+        max: 1000
+    MarginalCostFlows:
+        read: no # reads volume outputs and create volume files to be used by 'draw' , 'latex' and 'iamc'
+        draw: no
+        latex: no
+        iamc: no
+        Dir: 'MarginalCosts'
+    Demand:
+        read: no # reads volume outputs and create volume files to be used by 'draw' , 'latex' and 'iamc'
+        draw: no
+        latex: no
+        iamc: no
+        Dir: 'Demand'
+
+# dimensions of graphics
+Graphs:
+    Volume: 
+        nbcols: 3
+        nblines: 3
+        SizeCol: 50
+        SizeRow: 50
+        TitleSize: 50
+        LabelSize: 40
+    Power:
+        treat: ['Hydro','Geothermal','Biomass','WindPower','Nuclear','PV','Hydrogen','Coal','Gaz','Oil'] # use if only a sublist of technos are in the graphs
+        nbcols: 4
+        nblines: 4
+        SizeCol: 50
+        SizeRow: 35
+        TitleSize: 50
+        LabelSize: 40
+        ChloroGraph:
+            nbcols: 4
+            nblines: 4
+            dpi: 50
+    MarginalCost: 
+        nbcols: 4
+        nblines: 4
+        SizeCol: 50
+        SizeRow: 35
+        TitleSize: 50
+        LabelSize: 40
+    MarginalCostFlows:
+        nbcols: 3
+        nblines: 9
+    Demand:
+        nbcols: 4
+        nblines: 4
+        SizeCol: 50
+        SizeRow: 35
+        TitleSize: 50
+        LabelSize: 40
+
+# name of scenario for the IAMC file
+scenario: 'Techno-Friendly 2.0|Fully Centralised|'
+model: 'plan4EU v1.0'  # name of the model
+iamcFile: 'IAMC\\CS5_'  # all outputs files in optnentrance format will start by this
+
+# list of weeks for detailed plots (only for deterministic analyse of 1 scenario)
+treat_weeks: no
+weeks_stack:
+   0:
+      week_start: '2050-12-28T00:00+01:00'
+      week_end: '2051-01-18T23:00+01:00'
+
+# name and title of the latex report
+namereport: 'CS5'
+titlereport: 'CS5'
+
+# parameters of the model results
+treatexportsimports: yes # if no, the imports/exports are not treated in the deterministic case
+
+# list of plan4res regions to be included in treatment
+regionsANA: ['France' , 'Germany' , 'Italy' ,  'Switzerland' , 'EasternEurope', 'Benelux', 'Iberia', 'Britain', 'Balkans', 'Baltics', 'Denmark', 'Finland', 'Sweden','Norway']
+
+# list of regions with seasonal storage reservoirs
+ReservoirRegions: ['France' , 'Italy' ,  'Switzerland' , 'EasternEurope',  'Iberia',  'Balkans', 'Norway','Sweden']
+# list of interconnections  (the ordre must be the same as in the input data of plan4res)
+lines: [Denmark>Germany,Denmark>Norway,Denmark>Sweden,Finland>Sweden,France>Germany,France>Italy,France>Switzerland,Germany>Norway,Germany>Sweden,Germany>Switzerland,Italy>Switzerland,Norway>Sweden,France>Benelux,France>Iberia,France>Britain,Germany>EasternEurope,Germany>Benelux,Italy>EasternEurope,Italy>Balkans,Switzerland>EasternEurope,EasternEurope>Balkans,EasternEurope>Sweden,Benelux>Britain,Benelux>Denmark,Benelux>Norway,Britain>Denmark,Britain>Norway, Baltics>Finland]
+
+# if bellman value is to be computed (file BellmanOUT.csv in inputs): yes, else: no
+usevu: yes
+# week number in BellmanOUT.csv corresponding to plot_end
+timestepvusms: 51
+# figures are rounded: 1, not rounded: 0
+arrondi: 1
+# min and max of the marginal cost graphs
+marginalcostlimits:
+    max: 10000
+    min: -10000
+flow_cost: 0  
+pielimit: 0.001
+
+# information per technology:
+# color= hex code of the color to use for this technology
+# the following should be read from the data
+# cO2= cO2 cost per MWh for this technology
+# varcost= Variable cost Euro per MWh for this technology
+# startcost= Start-Up cost Euro
+
+Technos:
+    Geothermal:
+        color: '#8FA600'
+    Hydro|Run of River: 
+        color: '#74DBDA'
+    Nuclear:
+        color: '#FFAA00'
+    Coal|Hard coal|w/o CCS:
+        color: '#0D0D0D'
+    Coal|Hard coal|w/ CCS:  
+        color: '#4D4F4F'
+    Coal|Lignite|w/o CCS:
+        color: '#2F3030'
+    Wind|Offshore:
+        color: '#2BFF00'
+    Wind|Onshore:
+        color: '#22CC00'
+    Solar|PV:
+        color: '#FFFF00'
+    Biomass|w/ CCS:
+        color: '#608000'
+    Biomass|w/o CCS:
+        color: '#608000'
+    Hydrogen|OCGT:
+        color: '#DF785B'
+    Gas|CCGT|w/ CCS:
+        color: '#FF0000'
+    Gas|CCGT|w/o CCS:
+        color: '#B30000'
+    Gas|OCGT|w/o CCS:
+        color: '#E00000'
+    Oil|w/o CCS:
+        color: '#4F0000'
+    Reservoir:
+        color: '#0000FF'
+    Pumped Storage:
+        color: '#3377FF'
+    Lithium-Ion:
+        color: '#D75BE1'
+    Compressed Air:
+        color: '#BB16C7'
+    SlackUnit:
+        color: '#FFFFFF'
+        varcost: 10000.0
+    Pumped Storage_PUMP:
+        color: '#3377FF'
+    Lithium-Ion_PUMP:
+        color: '#E68F67'
+    Compressed Air_PUMP:
+        color: '#E6847A'
+
+# aggregated technologies (for aggregated graphs)
+# for each aggr techno: list of technos and color codes 
+technosAggr:
+    Hydro:
+        technos: ['Reservoir',  'Pumped Storage', 'Hydro|Run of River']
+        color: blue
+        colors: Blues
+    Hydro_PUMP:
+        technos: ['Pumped Storage_PUMP']
+        color: blue
+        colors: Blues
+    Geothermal: 
+        technos: ['Geothermal']
+        color: olive
+        colors: Greens
+    WindPower:
+        technos: ['Wind|Offshore', 'Wind|Onshore']
+        color: green
+        colors: Greens
+    PV:
+        technos: ['Solar|PV']
+        color: yellow
+        colors: YlOrRd
+    Biomass: 
+        technos: ['Biomass|w/ CCS','Biomass|w/o CCS']
+        color: darkkhaki
+        colors: Greens
+    Nuclear:
+        technos: ['Nuclear']
+        color: orange
+        colors: Oranges
+    Hydrogen:
+        technos: ['Hydrogen|OCGT']
+        color: salmon
+        colors: RdPu
+    Coal:
+        technos: ['Coal|Hard coal|w/o CCS','Coal|Hard coal|w/ CCS','Coal|Lignite|w/o CCS']
+        color: black
+        colors: Greys
+    Gaz:
+        technos: ['Gas|CCGT|w/o CCS','Gas|CCGT|w/ CCS','Gas|OCGT|w/o CCS']
+        color: firebrick
+        colors: Reds
+    Battery: 
+        technos: ['Compressed Air','Lithium-Ion']
+        color: magenta
+        colors: Purples
+    Battery_PUMP: 
+        technos: ['Compressed Air_PUMP','Lithium-Ion_PUMP']
+        color: magenta
+        colors: Purples
+    Oil:
+        technos: ['Oil|w/o CCS']
+        color: saddlebrown
+        colors: Greys
+    Non Served:
+        technos: ['SlackUnit']
+        color: blueviolet
+        colors: Purples
+        
+# lists of storage units
+# pumping=list of units with pumping capacity
+# nopumping=list of units without pumping capacity
+pumping: [ 'Pumped Storage', 'Compressed Air','Lithium-Ion']
+nopumping: [ 'Reservoir' ]
+
+# specification of deterministic graphics for storages
+graphVolumes:
+    Reservoir: 
+        Name: 'Reservoir' # name of graph
+        Technos: ['Reservoir'] # technos included
+    PumpedStorage: 
+        Name: 'Pumped Storage'
+        Technos: ['Pumped Storage']
+    Battery: 
+        Name: 'Batteries'
+        Technos: ['Compressed Air','Lithium-Ion']
