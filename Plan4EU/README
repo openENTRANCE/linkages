@@ -1,0 +1,7 @@
+This directory contains:
+
+- script: this directory contains the scripts for plan4res linkage to Open ENTRANCE:
+      CreateInputPlan4res: this script will create datasets within the plan4res format taking as inputs Open ENTRANCE scenarios
+      PostTreatPlan4res: this script will post-treat the results of plan4res, create graphs and a latex report and convert plan4res outputs to Open ENTRANCE format
+
+- documentation: this directory contains tutorials how to install and run plan4res
