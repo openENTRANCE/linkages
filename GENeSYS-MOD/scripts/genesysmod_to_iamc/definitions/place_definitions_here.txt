@@ -1,0 +1,4 @@
+In order to run the script, please paste your definitions from https://github.com/openENTRANCE/openentrance
+
+Proved working version is commit e16defbd61ad865eb98c2fc718122f10b4c7341e
+https://github.com/openENTRANCE/openentrance/commit/e16defbd61ad865eb98c2fc718122f10b4c7341e

@@ -1,0 +1,67 @@
+P_Biomass_CCS,Electricity|Biomass|w/ CCS
+P_Biomass,Electricity|Biomass|w/o CCS
+P_Coal_Hardcoal_CCS,Electricity|Coal|Hard coal|w/ CCS
+P_Coal_Hardcoal,Electricity|Coal|Hard coal|w/o CCS
+P_Coal_Lignite_CCS,Electricity|Coal|Lignite|w/ CCS
+P_Coal_Lignite,Electricity|Coal|Lignite|w/o CCS
+P_Gas_CCGT,Electricity|Gas|CCGT|w/o CCS
+P_Gas_OCGT,Electricity|Gas|OCGT|w/o CCS
+P_Gas_CCS,Electricity|Gas|CCGT|w/ CCS
+RES_Geothermal,Electricity|Geothermal
+D_PHS,Electricity|Hydro|Pumped Storage
+RES_Hydro_Large,Electricity|Hydro|Reservoir
+RES_Hydro_Small,Electricity|Hydro|Run of River
+X_Fuel_Cell,Electricity|Hydrogen|Fuel Cell
+P_H2_OCGT,Electricity|Hydrogen|OCGT
+P_Nuclear,Electricity|Nuclear
+RES_Ocean,Electricity|Ocean
+P_Oil,Electricity|Oil|w/o CCS
+RES_CSP,Electricity|Solar|CSP
+RES_PV_Rooftop_Commercial,Electricity|Solar|PV|Rooftop|Commercial
+RES_PV_Rooftop_Residential,Electricity|Solar|PV|Rooftop|Residential
+RES_PV_Utility_Avg,Electricity|Solar|PV|Utility
+RES_PV_Utility_Inf,Electricity|Solar|PV|Utility
+RES_PV_Utility_Opt,Electricity|Solar|PV|Utility
+RES_Wind_Offshore_Deep,Electricity|Wind|Offshore
+RES_Wind_Offshore_Shallow,Electricity|Wind|Offshore
+RES_Wind_Offshore_Transitional,Electricity|Wind|Offshore
+RES_Wind_Onshore_Avg,Electricity|Wind|Onshore
+RES_Wind_Onshore_Inf,Electricity|Wind|Onshore
+RES_Wind_Onshore_Opt,Electricity|Wind|Onshore
+HHI_Bio_BF_BOF,Heat|Industrial|Biomass
+HLI_Biomass,Heat|Industrial|Biomass
+HMI_Biomass,Heat|Industrial|Biomass
+HHI_BF_BOF,Heat|Industrial|Coal
+HHI_BF_BOF_CCS,Heat|Industrial|Coal
+HLI_Hardcoal,Heat|Industrial|Coal
+HLI_Lignite,Heat|Industrial|Coal
+HMI_HardCoal,Heat|Industrial|Coal
+HMI_HardCoal_CCS,Heat|Industrial|Coal
+HHI_Molten_Electrolysis,Heat|Industrial|Electricity
+HHI_Scrap_EAF,Heat|Industrial|Electricity
+HLI_Direct_Electric,Heat|Industrial|Electricity
+HMI_Steam_Electric,Heat|Industrial|Electricity
+HHI_DRI_EAF,Heat|Industrial|Gas
+HHI_DRI_EAF_CCS,Heat|Industrial|Gas
+HLI_Gas_Boiler,Heat|Industrial|Gas
+HMI_Gas,Heat|Industrial|Gas
+HMI_Gas_CCS,Heat|Industrial|Gas
+HLI_Geothermal,Heat|Industrial|Geothermal
+HHI_H2DRI_EAF,Heat|Industrial|Hydrogen
+HLI_Fuelcell,Heat|Industrial|Hydrogen
+HLI_H2_Boiler,Heat|Industrial|Hydrogen
+HLR_H2_Boiler,Heat|Industrial|Hydrogen
+HMI_H2,Heat|Industrial|Hydrogen
+HLI_Oil_Boiler,Heat|Industrial|Oil
+HMI_Oil,Heat|Industrial|Oil
+HLI_Solar_Thermal,Heat|Industrial|Solar
+HLR_Biomass,Heat|Residential and Commercial|Biomass
+HLR_Hardcoal,Heat|Residential and Commercial|Coal
+HLR_Lignite,Heat|Residential and Commercial|Coal
+HLR_Direct_Electric,Heat|Residential and Commercial|Electricity
+HLR_Heatpump_Aerial,Heat|Residential and Commercial|Electricity
+HLR_Heatpump_Ground,Heat|Residential and Commercial|Electricity
+HLR_Gas_Boiler,Heat|Residential and Commercial|Gas
+HLR_Geothermal,Heat|Residential and Commercial|Geothermal
+HLR_Oil_Boiler,Heat|Residential and Commercial|Oil
+HLR_Solar_Thermal,Heat|Residential and Commercial|Solar

@@ -7,12 +7,17 @@ import genesysmod_to_iamc.series_generator as sg
 
 import nomenclature
 import pyam
+from genesysmod_to_iamc.workflow import main as workflow
+
 
 import logging
 import os
 
-logging.basicConfig(level=logging.INFO)
+definition_dir = Path(__file__).parent / 'definitions'
+definition = nomenclature.DataStructureDefinition(definition_dir)
 
+
+logging.basicConfig(level=logging.INFO)
 
 class Pathways(Enum):
     TF = "TechnoFriendly"
@@ -21,13 +26,13 @@ class Pathways(Enum):
     SC = "SocietalCommitment"
 
 
-def generate_data(input_file: str, generate_series_data: bool = False, generate_load_factors: bool = False,
+def generate_data(input_file: str, generate_series_data: bool = False, generate_load_factors: bool = False, generate_transmission_data: bool = False,
                   combine_outputs: bool = False):
 
     if not os.path.exists(DEF_OUTPUT_PATH):
         os.makedirs(DEF_OUTPUT_PATH)
 
-    data_wrapper = _generate_yearly_values(input_file)
+    data_wrapper = _generate_yearly_values(input_file,generate_transmission_data)
     output_name = data_wrapper.input_file + "_yearly.csv"
     data_wrapper.idataframe.to_csv(DEF_OUTPUT_PATH / output_name)
 
@@ -56,10 +61,11 @@ def generate_combined_excel_yearly():
     genesys.to_excel(f'GENeSYS-MOD-pathways.xlsx')
 
 
-def _generate_yearly_values(input_file):
+def _generate_yearly_values(input_file,generate_transmission_data:bool = False):
     data_wrapper = dr.load_gdx_file(input_file, DEF_GAMS_DIR)
 
-    dt.generate_transmission_capacity_values(data_wrapper)
+    if generate_transmission_data == True:
+        dt.generate_transmission_capacity_values(data_wrapper)
     dt.generate_load_demand_series(data_wrapper)
     dt.generate_primary_energy_values(data_wrapper)
     dt.generate_final_energy_values(data_wrapper)
@@ -67,13 +73,18 @@ def _generate_yearly_values(input_file):
     dt.generate_transport_capacity_values(data_wrapper)
     dt.generate_storage_capacity_values(data_wrapper)
     dt.generate_emissions_values(data_wrapper)
-    dt.generate_additional_emissions_values(data_wrapper)
+#    dt.generate_additional_emissions_values(data_wrapper)
     dt.generate_secondary_energy(data_wrapper)
     dt.generate_exogenous_costs(data_wrapper)
+    dt.generate_detailed_costs(data_wrapper)
     dt.generate_co2_prices(data_wrapper)
 
     data_wrapper.generate_idataframe(True)
-    nomenclature.validate(data_wrapper.idataframe)
+
+#    df = workflow(pyam.IamDataFrame(data_wrapper.idataframe))
+    df = pyam.IamDataFrame(data_wrapper.idataframe)
+
+#    definition.validate(df)
     return data_wrapper
 
 
@@ -81,7 +92,7 @@ def _generate_load_factors(input_file):
     data_wrapper_series = dr.load_gdx_file(input_file, DEF_GAMS_DIR)
     dt.generate_load_factors(data_wrapper_series)
     data_wrapper_series.generate_idataframe_renewable_series()
-    nomenclature.validate(data_wrapper_series.idataframe)
+    nomenclature.DataStructureDefition.validate(dsd,df=data_wrapper_series.idataframe)
     return data_wrapper_series
 
 

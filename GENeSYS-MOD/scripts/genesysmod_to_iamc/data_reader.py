@@ -52,20 +52,35 @@ def loadmap_non_bio_renewables():
 
 def loadmap_from_csv(file):
     filename = file + ".csv"
-    return pd.read_csv(DEF_MAPPINGS_PATH / filename, header=None, index_col=0, squeeze=True).to_dict()
+    return pd.read_csv(DEF_MAPPINGS_PATH / filename, header=None, index_col=0).squeeze("columns").to_dict()
 
+def loaddf_from_csv(file):
+    filename = file + ".csv"
+    return pd.read_csv(DEF_MAPPINGS_PATH / filename, header=0)
+
+definition_dir = Path(__file__).parent
 
 def loadmap_iso2_countries():
-    with open(DEF_MAPPINGS_PATH / 'countries.yaml', 'r') as stream:
+    with open(definition_dir/ 'countries.yaml', 'r') as stream:
         country_codelist = yaml.load(stream, Loader=yaml.FullLoader)
 
+#    countries = CodeList.from_directory(
+#        "region", path=definition_dir/'region', file="countries.yaml"
+#    )
     iso2_mapping = dict(
         [(country_codelist[c]['iso2'], c) for c in country_codelist]
-        # add alternative iso2 codes used by the European Commission to the mapping
+       # add alternative iso2 codes used by the European Commission to the mapping
         + [(country_codelist[c]['iso2_alt'], c) for c in country_codelist
            if 'iso2_alt' in country_codelist[c]]
     )
 
+#    iso2_mapping = dict(
+#        [(countries[c]["iso3"], c) for c in countries]
+#        + [(countries[c]["iso2"], c) for c in countries]
+#        # add alternative iso2 codes used by the European Commission to the mapping
+#        + [(countries[c]["iso2_alt"], c) for c in countries if "iso2_alt" in countries[c]]
+#    )
+#    print(iso2_mapping)
     return iso2_mapping
 
 

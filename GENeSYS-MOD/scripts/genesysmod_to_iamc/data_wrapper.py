@@ -14,6 +14,7 @@ class DataWrapper(object):
         self.emission_values = pd.DataFrame()
         self.capacity_values = pd.DataFrame()
         self.cost_values = pd.DataFrame()
+        self.detailed_cost_values = pd.DataFrame()
         self.trade_capacity_values = pd.DataFrame()
 
         self.transformed_data = {}
@@ -56,6 +57,10 @@ class DataWrapper(object):
         _raw_cost_values: pd.DataFrame = self._output_gdx[DEF_EXOGENOUS_COST_SHEET]
         _raw_cost_values.columns = DEF_EXOGENOUS_COST_COLUMNS
         self.cost_values = _raw_cost_values
+
+        _raw_detailed_cost_values: pd.DataFrame = self._output_gdx[DEF_DETAILED_COST_SHEET]
+        _raw_detailed_cost_values.columns = DEF_DETAILED_COST_COLUMNS
+        self.detailed_cost_values = _raw_detailed_cost_values[_raw_detailed_cost_values['unit'] == 'MEUR/PJ']
 
         _raw_trade_capacity_values: pd.DataFrame = self._output_gdx[DEF_TRADE_CAPACITY_SHEET]
         _raw_trade_capacity_values.columns = DEF_TRADE_CAPACITY_COLUMNS
